@@ -1,0 +1,1589 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#203451" />
+  <meta name="description" content="2026年9月26日至10月8日，巴黎、米兰、佛罗伦萨、罗马、梵蒂冈与布达佩斯行程执行网站。" />
+  <title>欧洲三国行程｜2026.09.26—10.08</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23203451'/%3E%3Cpath d='M12 42c12-17 29-23 40-22-7 7-11 16-12 26-10-5-19-5-28-4Z' fill='%23e4b66b'/%3E%3Ccircle cx='44' cy='18' r='5' fill='%23fff7e8'/%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --bg: #f5f1e9;
+      --surface: rgba(255, 253, 248, 0.92);
+      --surface-strong: #fffdf8;
+      --ink: #1f2d43;
+      --muted: #687282;
+      --line: rgba(31, 45, 67, 0.13);
+      --navy: #203451;
+      --blue: #3f6788;
+      --green: #496d61;
+      --rust: #a75b48;
+      --gold: #c58f45;
+      --purple: #6d5d84;
+      --danger: #a84843;
+      --shadow: 0 18px 44px rgba(35, 47, 65, 0.10);
+      --shadow-soft: 0 8px 22px rgba(35, 47, 65, 0.07);
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --content: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% -5%, rgba(197, 143, 69, .18), transparent 32rem),
+        radial-gradient(circle at 94% 12%, rgba(63, 103, 136, .15), transparent 30rem),
+        var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { -webkit-tap-highlight-color: transparent; }
+
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 999;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: #fff;
+      color: var(--navy);
+      transform: translateY(-160%);
+      transition: transform .2s ease;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 500px;
+      color: #fff;
+      background:
+        linear-gradient(132deg, rgba(20, 38, 62, .98), rgba(41, 70, 94, .92) 58%, rgba(93, 76, 91, .90));
+    }
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(1px);
+      pointer-events: none;
+    }
+    .hero::before {
+      width: 360px;
+      height: 360px;
+      right: -70px;
+      top: -110px;
+      background: rgba(228, 182, 107, .16);
+    }
+    .hero::after {
+      width: 270px;
+      height: 270px;
+      left: 43%;
+      bottom: -190px;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(var(--content), calc(100% - 36px));
+      margin: 0 auto;
+      padding: 58px 0 46px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(340px, .75fr);
+      gap: 48px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e5b76f;
+      box-shadow: 0 0 0 5px rgba(229,183,111,.14);
+    }
+
+    h1 {
+      margin: 18px 0 16px;
+      font-family: Georgia, "Songti SC", "STSong", serif;
+      font-size: clamp(44px, 7vw, 84px);
+      line-height: 1.02;
+      letter-spacing: -.035em;
+      font-weight: 700;
+    }
+    .hero-lead {
+      max-width: 720px;
+      margin: 0;
+      color: rgba(255,255,255,.82);
+      font-size: clamp(16px, 2vw, 20px);
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.9);
+      font-size: 14px;
+    }
+
+    .hero-card {
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, rgba(255,255,255,.13), rgba(255,255,255,.06));
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px rgba(0,0,0,.16);
+    }
+    .hero-card-title {
+      margin: 0 0 14px;
+      font-size: 14px;
+      color: rgba(255,255,255,.62);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .hero-route {
+      display: grid;
+      gap: 10px;
+    }
+    .hero-route-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,.9);
+      font-size: 15px;
+    }
+    .route-bullet {
+      flex: 0 0 auto;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid #e4b66b;
+      background: transparent;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 9px 15px;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+      font-weight: 650;
+      text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:focus-visible,
+    .filter-btn:focus-visible,
+    summary:focus-visible,
+    .check-row:focus-within,
+    .nav-link:focus-visible {
+      outline: 3px solid rgba(229, 183, 111, .65);
+      outline-offset: 3px;
+    }
+    .btn-light {
+      background: #fff;
+      color: var(--navy);
+      box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    }
+    .btn-ghost {
+      color: #fff;
+      border-color: rgba(255,255,255,.22);
+      background: rgba(255,255,255,.07);
+    }
+    .btn-soft {
+      background: #f0ebe2;
+      border-color: var(--line);
+      color: var(--navy);
+    }
+
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 80;
+      border-bottom: 1px solid rgba(31, 45, 67, .10);
+      background: rgba(250, 247, 240, .88);
+      backdrop-filter: blur(18px);
+    }
+    .nav-inner {
+      width: min(var(--content), calc(100% - 28px));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 62px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-brand {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-right: 8px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .nav-mark {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: white;
+      background: var(--navy);
+      font-size: 16px;
+    }
+    .nav-link {
+      flex: 0 0 auto;
+      padding: 8px 11px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+      transition: .18s ease;
+    }
+    .nav-link:hover,
+    .nav-link.is-active {
+      color: var(--navy);
+      background: rgba(32, 52, 81, .08);
+    }
+
+    main {
+      width: min(var(--content), calc(100% - 36px));
+      margin: 0 auto;
+      padding: 58px 0 82px;
+    }
+    section { scroll-margin-top: 86px; }
+    section + section { margin-top: 76px; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .section-kicker {
+      margin: 0 0 5px;
+      color: var(--rust);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 0;
+      font-family: Georgia, "Songti SC", "STSong", serif;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.15;
+      color: var(--navy);
+    }
+    .section-desc {
+      max-width: 680px;
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 14px;
+    }
+    .stat-card {
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+    }
+    .stat-value {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--navy);
+      font-size: clamp(28px, 4vw, 42px);
+      font-family: Georgia, serif;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .stat-label { color: var(--muted); font-size: 14px; }
+
+    .route-board {
+      margin-top: 18px;
+      padding: 24px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface-strong);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .route-scroll {
+      overflow-x: auto;
+      padding: 8px 2px 12px;
+      scrollbar-color: rgba(32,52,81,.25) transparent;
+    }
+    .route-track {
+      min-width: 970px;
+      display: grid;
+      grid-template-columns: repeat(9, minmax(92px, 1fr));
+      align-items: start;
+      position: relative;
+    }
+    .route-track::before {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: 5.5%;
+      right: 5.5%;
+      height: 2px;
+      background: repeating-linear-gradient(90deg, rgba(32,52,81,.28) 0 8px, transparent 8px 14px);
+    }
+    .route-stop {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 4px;
+    }
+    .route-icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 10px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      background: #f4efe5;
+      border: 1px solid rgba(32,52,81,.12);
+      color: var(--navy);
+      font-size: 23px;
+      box-shadow: 0 8px 18px rgba(32,52,81,.08);
+    }
+    .route-city { display: block; font-weight: 800; font-size: 14px; }
+    .route-mode { display: block; margin-top: 2px; color: var(--muted); font-size: 12px; }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+    }
+    .decision-card {
+      padding: 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+    }
+    .decision-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      margin-bottom: 13px;
+      background: rgba(63,103,136,.10);
+      font-size: 20px;
+    }
+    .decision-card h3 { margin: 0 0 6px; font-size: 17px; }
+    .decision-card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .itinerary-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter-btn {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.65);
+      color: var(--muted);
+      padding: 8px 13px;
+      cursor: pointer;
+      transition: .18s ease;
+    }
+    .filter-btn:hover,
+    .filter-btn.is-active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+      box-shadow: 0 8px 16px rgba(32,52,81,.16);
+    }
+    .expand-actions { display: flex; gap: 8px; }
+
+    .days-list { display: grid; gap: 14px; }
+    .day-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface-strong);
+      box-shadow: var(--shadow-soft);
+      overflow: clip;
+    }
+    .day-card[hidden] { display: none; }
+    .day-card summary {
+      list-style: none;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 124px minmax(0,1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 20px 22px;
+      user-select: none;
+    }
+    .day-card summary::-webkit-details-marker { display: none; }
+    .date-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .date-number {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--day-color, var(--navy));
+      color: #fff;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .date-meta strong { display: block; color: var(--navy); font-size: 14px; }
+    .date-meta span { display: block; color: var(--muted); font-size: 12px; }
+    .day-summary h3 { margin: 0 0 3px; font-size: 19px; color: var(--navy); }
+    .day-summary p { margin: 0; color: var(--muted); font-size: 14px; }
+    .day-tags { display: flex; justify-content: flex-end; gap: 6px; flex-wrap: wrap; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--day-color, var(--navy)) 10%, white);
+      color: var(--day-color, var(--navy));
+      font-size: 12px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+    .chevron {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: var(--muted);
+      background: #f3efe7;
+      transition: transform .2s ease;
+    }
+    .day-card[open] .chevron { transform: rotate(180deg); }
+    .day-body {
+      padding: 0 22px 22px;
+      border-top: 1px solid var(--line);
+    }
+    .timeline { position: relative; padding: 19px 0 0 18px; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 28px;
+      bottom: 8px;
+      width: 2px;
+      background: color-mix(in srgb, var(--day-color, var(--navy)) 24%, white);
+    }
+    .time-row {
+      position: relative;
+      display: grid;
+      grid-template-columns: 118px minmax(0,1fr);
+      gap: 15px;
+      padding: 0 0 16px 10px;
+    }
+    .time-row::before {
+      content: "";
+      position: absolute;
+      left: -18px;
+      top: 7px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--surface-strong);
+      border: 3px solid var(--day-color, var(--navy));
+    }
+    .time { color: var(--day-color, var(--navy)); font-weight: 800; font-size: 13px; }
+    .event-title { font-weight: 750; color: var(--ink); }
+    .event-note { display: block; margin-top: 2px; color: var(--muted); font-size: 13px; }
+    .day-note {
+      margin: 6px 0 0 18px;
+      padding: 13px 15px;
+      border-left: 3px solid var(--day-color, var(--navy));
+      border-radius: 0 12px 12px 0;
+      background: color-mix(in srgb, var(--day-color, var(--navy)) 7%, white);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface-strong);
+      box-shadow: var(--shadow-soft);
+    }
+    table { width: 100%; border-collapse: collapse; min-width: 760px; }
+    th, td { padding: 15px 16px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th {
+      color: #fff;
+      background: var(--navy);
+      font-size: 13px;
+      letter-spacing: .03em;
+    }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:hover td { background: rgba(32,52,81,.025); }
+    td { font-size: 14px; }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .status-must { color: #8b322d; background: #f8e7e4; }
+    .status-recommend { color: #7a5d20; background: #f7efd8; }
+    .status-optional { color: #3d617d; background: #e7f0f6; }
+    .status-confirmed { color: #326353; background: #e3f1ec; }
+    .status-pending { color: #8a4f35; background: #f7e9df; }
+
+    .emergency-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+    .emergency-card {
+      display: grid;
+      grid-template-columns: 38px minmax(0,1fr);
+      gap: 12px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+    }
+    .emergency-no {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--rust);
+      background: rgba(167,91,72,.10);
+      font-weight: 900;
+    }
+    .emergency-card h3 { margin: 0 0 4px; font-size: 15px; }
+    .emergency-card p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .check-shell {
+      display: grid;
+      grid-template-columns: 260px minmax(0,1fr);
+      gap: 18px;
+      align-items: start;
+    }
+    .progress-card {
+      position: sticky;
+      top: 86px;
+      padding: 23px;
+      border-radius: var(--radius-lg);
+      background: var(--navy);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+    .progress-card h3 { margin: 0 0 3px; font-size: 18px; }
+    .progress-card p { margin: 0; color: rgba(255,255,255,.65); font-size: 13px; }
+    .progress-ring {
+      width: 140px;
+      aspect-ratio: 1;
+      margin: 22px auto;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: conic-gradient(#e4b66b var(--progress, 0%), rgba(255,255,255,.13) 0);
+      position: relative;
+    }
+    .progress-ring::before {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      border-radius: 50%;
+      background: var(--navy);
+    }
+    .progress-value { position: relative; z-index: 1; text-align: center; }
+    .progress-value strong { display: block; font: 700 34px/1 Georgia, serif; }
+    .progress-value span { font-size: 12px; color: rgba(255,255,255,.66); }
+    .progress-card .btn { width: 100%; }
+    .check-groups { display: grid; gap: 14px; }
+    .check-group {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface-strong);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+    .check-group h3 {
+      margin: 0;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      font-size: 16px;
+      color: var(--navy);
+      background: #faf7f0;
+    }
+    .check-list { padding: 6px 14px 12px; }
+    .check-row {
+      display: grid;
+      grid-template-columns: 24px minmax(0,1fr);
+      gap: 10px;
+      align-items: start;
+      padding: 10px 4px;
+      border-bottom: 1px dashed rgba(31,45,67,.10);
+      cursor: pointer;
+    }
+    .check-row:last-child { border-bottom: 0; }
+    .check-row input {
+      width: 19px;
+      height: 19px;
+      margin: 3px 0 0;
+      accent-color: var(--green);
+      cursor: pointer;
+    }
+    .check-text { font-size: 14px; }
+    .check-row:has(input:checked) .check-text {
+      color: #8a9099;
+      text-decoration: line-through;
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+    }
+    .resource-card {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+    }
+    .resource-card h3 { margin: 0 0 12px; color: var(--navy); font-size: 17px; }
+    .resource-list { display: grid; gap: 8px; }
+    .resource-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 11px;
+      border: 1px solid rgba(31,45,67,.09);
+      border-radius: 11px;
+      background: rgba(255,255,255,.55);
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 13px;
+      transition: .18s ease;
+    }
+    .resource-link:hover { background: #fff; transform: translateX(2px); }
+    .resource-link span:last-child { color: var(--muted); }
+
+    .note-banner {
+      margin-top: 16px;
+      padding: 15px 17px;
+      border-radius: 14px;
+      background: rgba(197,143,69,.12);
+      border: 1px solid rgba(197,143,69,.24);
+      color: #70572c;
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 36px 18px 44px;
+      color: rgba(255,255,255,.68);
+      background: var(--navy);
+      text-align: center;
+    }
+    footer strong { color: #fff; }
+    footer p { margin: 4px 0; }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 26px;
+      z-index: 120;
+      max-width: calc(100% - 32px);
+      padding: 11px 15px;
+      border-radius: 12px;
+      background: #18273d;
+      color: #fff;
+      box-shadow: 0 14px 34px rgba(0,0,0,.25);
+      transform: translate(-50%, 130%);
+      opacity: 0;
+      transition: .25s ease;
+      font-size: 14px;
+    }
+    .toast.is-showing { transform: translate(-50%, 0); opacity: 1; }
+
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; align-items: start; }
+      .hero-card { max-width: 640px; }
+      .overview-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .decision-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .resources-grid { grid-template-columns: 1fr 1fr; }
+      .check-shell { grid-template-columns: 1fr; }
+      .progress-card { position: static; display: grid; grid-template-columns: 1fr 140px; align-items: center; }
+      .progress-ring { margin: 0; }
+      .progress-card .btn { grid-column: 1 / -1; margin-top: 16px; }
+    }
+
+    @media (max-width: 720px) {
+      .hero { min-height: auto; }
+      .hero-inner { width: min(100% - 28px, var(--content)); padding: 40px 0 34px; gap: 28px; }
+      h1 { font-size: clamp(42px, 14vw, 64px); }
+      .hero-card { padding: 19px; }
+      .nav-brand span:last-child { display: none; }
+      main { width: min(100% - 24px, var(--content)); padding-top: 42px; }
+      section + section { margin-top: 58px; }
+      .section-head { align-items: start; flex-direction: column; }
+      .overview-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .stat-card { padding: 17px; }
+      .decision-grid, .resources-grid, .emergency-grid { grid-template-columns: 1fr; }
+      .day-card summary {
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        padding: 17px;
+      }
+      .date-box { grid-column: 1 / 2; }
+      .day-summary { grid-column: 1 / -1; }
+      .day-tags { justify-content: flex-start; grid-column: 1 / -1; }
+      .chevron { grid-column: 2; grid-row: 1; }
+      .day-body { padding: 0 15px 18px; }
+      .time-row { grid-template-columns: 86px minmax(0,1fr); gap: 8px; padding-left: 8px; }
+      .timeline { padding-left: 16px; }
+      .day-note { margin-left: 16px; }
+      .itinerary-toolbar { align-items: stretch; }
+      .filters { width: 100%; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; }
+      .filter-btn { flex: 0 0 auto; }
+      .expand-actions { width: 100%; }
+      .expand-actions .btn { flex: 1; }
+      .progress-card { grid-template-columns: 1fr 112px; }
+      .progress-ring { width: 112px; }
+    }
+
+    @media (max-width: 460px) {
+      .overview-grid { grid-template-columns: 1fr; }
+      .hero-meta { align-items: stretch; }
+      .meta-chip { width: 100%; }
+      .progress-card { grid-template-columns: 1fr; text-align: center; }
+      .progress-ring { margin: 18px auto 0; }
+      .time-row { grid-template-columns: 76px minmax(0,1fr); }
+    }
+
+    @media print {
+      :root { --bg: #fff; --surface: #fff; --surface-strong: #fff; --shadow: none; --shadow-soft: none; }
+      body { background: #fff; font-size: 11pt; }
+      .hero { min-height: auto; color: var(--ink); background: #fff; border-bottom: 2px solid var(--navy); }
+      .hero-inner { display: block; padding: 20px 0; }
+      .hero-card, .hero-actions, .sticky-nav, .itinerary-toolbar, .progress-card .btn, .toast { display: none !important; }
+      h1 { color: var(--navy); font-size: 34pt; }
+      .hero-lead, .meta-chip { color: var(--ink); }
+      .meta-chip { border-color: var(--line); background: #fff; }
+      main { width: 100%; padding: 24px 0; }
+      section + section { margin-top: 34px; }
+      .overview-grid { grid-template-columns: repeat(4,1fr); }
+      .decision-grid { grid-template-columns: repeat(3,1fr); }
+      .resources-grid { grid-template-columns: repeat(3,1fr); }
+      .check-shell { grid-template-columns: 1fr; }
+      .progress-card { display: none; }
+      .day-card { break-inside: avoid; }
+      .day-card summary { grid-template-columns: 100px 1fr auto; }
+      .day-card > .day-body { display: block !important; }
+      .chevron { display: none; }
+      .route-scroll { overflow: visible; }
+      .route-track { min-width: 0; }
+      a { text-decoration: none; }
+      .resource-link span:last-child { display: none; }
+      footer { color: var(--ink); background: #fff; border-top: 1px solid var(--line); }
+      footer strong { color: var(--ink); }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span>可分发执行版 · 不含住宿推荐</div>
+        <h1>欧洲三国<br />行程规划</h1>
+        <p class="hero-lead">巴黎、米兰、佛罗伦萨、罗马、梵蒂冈与布达佩斯。按日期展开，重点预约、城际交通和现场取舍集中在同一个页面。</p>
+        <div class="hero-meta">
+          <span class="meta-chip">📅 2026.09.26—10.08</span>
+          <span class="meta-chip">👥 2人</span>
+          <span class="meta-chip">🕒 均为当地时间</span>
+          <span class="meta-chip">🧭 法国 · 意大利 · 匈牙利</span>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="路线概览">
+        <p class="hero-card-title">Route overview</p>
+        <div class="hero-route">
+          <div class="hero-route-line"><span class="route-bullet"></span>香港 → 曼谷 → 巴黎</div>
+          <div class="hero-route-line"><span class="route-bullet"></span>巴黎 → 米兰 → 佛罗伦萨（比萨往返）</div>
+          <div class="hero-route-line"><span class="route-bullet"></span>佛罗伦萨 → 罗马 / 梵蒂冈</div>
+          <div class="hero-route-line"><span class="route-bullet"></span>罗马 → 布达佩斯 → 迪拜 → 香港</div>
+        </div>
+        <div class="hero-actions">
+          <button class="btn btn-light" id="shareBtn" type="button">↗ 分享网站</button>
+          <button class="btn btn-ghost" id="printBtn" type="button">⎙ 打印 / 导出 PDF</button>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <nav class="sticky-nav" aria-label="页面导航">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#top"><span class="nav-mark">✦</span><span>欧洲行程</span></a>
+      <a class="nav-link" href="#overview">概览</a>
+      <a class="nav-link" href="#decisions">关键取舍</a>
+      <a class="nav-link" href="#itinerary">每日行程</a>
+      <a class="nav-link" href="#reservations">预约</a>
+      <a class="nav-link" href="#transport">交通</a>
+      <a class="nav-link" href="#contingency">应急</a>
+      <a class="nav-link" href="#checklist">清单</a>
+      <a class="nav-link" href="#resources">实用链接</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section id="overview" aria-labelledby="overview-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Overview</p>
+          <h2 id="overview-title">一眼看懂整趟旅行</h2>
+          <p class="section-desc">先看路线与强度，再展开每天的详细时间轴。所有需要提前决定的事项都在后续模块集中呈现。</p>
+        </div>
+      </div>
+      <div class="overview-grid">
+        <article class="stat-card"><span class="stat-value">13</span><span class="stat-label">个日历日（含往返转机）</span></article>
+        <article class="stat-card"><span class="stat-value">11</span><span class="stat-label">个欧洲游玩日</span></article>
+        <article class="stat-card"><span class="stat-value">7</span><span class="stat-label">个核心目的地</span></article>
+        <article class="stat-card"><span class="stat-value">3</span><span class="stat-label">项必须提前预约</span></article>
+      </div>
+      <div class="route-board">
+        <div class="route-scroll" aria-label="行程路线轴">
+          <div class="route-track" id="routeTrack"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="decisions" aria-labelledby="decisions-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Trip choices</p>
+          <h2 id="decisions-title">已确认的关键取舍</h2>
+          <p class="section-desc">这些项目不再占用预约和排队时间，网站中的每日安排已按这些偏好重新编排。</p>
+        </div>
+      </div>
+      <div class="decision-grid" id="decisionGrid"></div>
+    </section>
+
+    <section id="itinerary" aria-labelledby="itinerary-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Daily plan</p>
+          <h2 id="itinerary-title">每日行程时间轴</h2>
+          <p class="section-desc">点击日期卡片展开；也可以按城市筛选，或一次性展开全部内容。</p>
+        </div>
+      </div>
+      <div class="itinerary-toolbar">
+        <div class="filters" role="group" aria-label="按区域筛选行程">
+          <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">全部</button>
+          <button class="filter-btn" type="button" data-filter="paris" aria-pressed="false">巴黎</button>
+          <button class="filter-btn" type="button" data-filter="italy" aria-pressed="false">意大利</button>
+          <button class="filter-btn" type="button" data-filter="rome" aria-pressed="false">罗马 / 梵蒂冈</button>
+          <button class="filter-btn" type="button" data-filter="budapest" aria-pressed="false">布达佩斯</button>
+          <button class="filter-btn" type="button" data-filter="transit" aria-pressed="false">转场日</button>
+        </div>
+        <div class="expand-actions">
+          <button class="btn btn-soft" type="button" id="expandAll">展开全部</button>
+          <button class="btn btn-soft" type="button" id="collapseAll">收起全部</button>
+        </div>
+      </div>
+      <div class="days-list" id="daysList"></div>
+    </section>
+
+    <section id="reservations" aria-labelledby="reservations-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Reservations</p>
+          <h2 id="reservations-title">门票与活动预约</h2>
+          <p class="section-desc">“必须预约”优先锁定；“可选”项目不应挤压购物、休息或核心景点时间。</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>项目</th><th>日期</th><th>建议时段</th><th>状态</th><th>执行提示</th></tr></thead>
+          <tbody id="reservationRows"></tbody>
+        </table>
+      </div>
+      <div class="note-banner">无需购买：埃菲尔铁塔登顶票、佛罗伦萨穹顶 / 乔托钟楼登顶通票、比萨斜塔登塔票、斗兽场遗址联票、匈牙利国会大厦内部参观票、布达佩斯温泉门票。</div>
+    </section>
+
+    <section id="transport" aria-labelledby="transport-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Intercity</p>
+          <h2 id="transport-title">城际交通清单</h2>
+          <p class="section-desc">待确认的机场与待购买的高铁票已高亮，便于下一步直接完成下单。</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>日期</th><th>区间</th><th>方式</th><th>目标时间</th><th>状态</th></tr></thead>
+          <tbody id="transportRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="contingency" aria-labelledby="contingency-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Fallbacks</p>
+          <h2 id="contingency-title">现场应急调整</h2>
+          <p class="section-desc">遇到延误、天气和排队问题时，优先保护核心体验，不为可选项目强行赶场。</p>
+        </div>
+      </div>
+      <div class="emergency-grid" id="emergencyGrid"></div>
+    </section>
+
+    <section id="checklist" aria-labelledby="checklist-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Checklist</p>
+          <h2 id="checklist-title">出发前检查清单</h2>
+          <p class="section-desc">勾选状态会保存在当前设备的浏览器中。更换设备或清除浏览器数据后，进度不会同步。</p>
+        </div>
+      </div>
+      <div class="check-shell">
+        <aside class="progress-card">
+          <div>
+            <h3>准备进度</h3>
+            <p id="progressText">0 / 0 项已完成</p>
+          </div>
+          <div class="progress-ring" id="progressRing" style="--progress:0%">
+            <div class="progress-value"><strong id="progressPercent">0%</strong><span>完成</span></div>
+          </div>
+          <button class="btn btn-ghost" id="resetChecklist" type="button">重置全部勾选</button>
+        </aside>
+        <div class="check-groups" id="checkGroups"></div>
+      </div>
+    </section>
+
+    <section id="resources" aria-labelledby="resources-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Official links</p>
+          <h2 id="resources-title">实用信息入口</h2>
+          <p class="section-desc">票务、营业时间和交通状态可能变化，临行前以对应官方页面为准。</p>
+        </div>
+      </div>
+      <div class="resources-grid" id="resourcesGrid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>欧洲三国行程 · 2026</strong></p>
+    <p>巴黎 → 米兰 → 佛罗伦萨 / 比萨 → 罗马 / 梵蒂冈 → 布达佩斯</p>
+    <p>页面不包含住宿推荐；时间均为当地时间。</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript><div style="padding:16px;background:#fff3cd;color:#664d03;text-align:center">此网站需要启用 JavaScript 才能显示完整行程与交互功能。</div></noscript>
+
+  <script>
+    const palette = {
+      paris: '#3f6788',
+      italy: '#496d61',
+      rome: '#a75b48',
+      budapest: '#6d5d84',
+      transit: '#7b6b58'
+    };
+
+    const routeStops = [
+      { city: '香港', icon: '▥', mode: '出发' },
+      { city: '曼谷', icon: '✈', mode: '转机' },
+      { city: '巴黎', icon: '♜', mode: '飞机' },
+      { city: '米兰', icon: '♟', mode: '飞机' },
+      { city: '佛罗伦萨\n· 比萨', icon: '◉', mode: '高铁 / 区域列车' },
+      { city: '罗马\n· 梵蒂冈', icon: '◌', mode: '高铁' },
+      { city: '布达佩斯', icon: '⌂', mode: '飞机' },
+      { city: '迪拜', icon: '▲', mode: '飞机' },
+      { city: '香港', icon: '▥', mode: '返程' }
+    ];
+
+    const decisions = [
+      { icon: '🗼', title: '埃菲尔铁塔', text: '只看外观、夜景与闪灯，不安排登顶。' },
+      { icon: '🛍️', title: '巴黎购物优先', text: '9月28日下午留给香榭丽舍与 lululemon；塞纳河游船非必选。' },
+      { icon: '🗼', title: '比萨斜塔', text: '只拍外观游客照，不登塔，不购买登塔票。' },
+      { icon: '🏛️', title: '斗兽场', text: '以外观拍照和古城轴线步行为主，不默认进入遗址区。' },
+      { icon: '⛪', title: '罗马教堂', text: '加入圣依纳爵堂，重点观看天顶壁画和视觉错觉穹顶。' },
+      { icon: '🌉', title: '布达佩斯', text: '国会大厦只看外观；保留多瑙河夜游作为重点体验。' }
+    ];
+
+    const itinerary = [
+      {
+        id: '0926', month: '9月', day: '26', week: '周六', city: '香港 → 曼谷 → 巴黎',
+        summary: '夜航与联程转机', filters: ['transit'], color: palette.transit,
+        tags: ['已购机票', '转场'],
+        items: [
+          ['19:05', '香港起飞', '开启联程行程'],
+          ['20:45', '抵达曼谷', '完成联程转机'],
+          ['00:05', '曼谷起飞', '前往巴黎']
+        ],
+        note: '随身携带一套衣物、基础洗漱用品、充电设备和常用药；护照、签证、保险与订单保留离线版本。'
+      },
+      {
+        id: '0927', month: '9月', day: '27', week: '周日', city: '巴黎',
+        summary: 'CDG T1落地 · 蒙马特 · 埃菲尔铁塔夜景', filters: ['paris'], color: palette.paris,
+        tags: ['落地日', '轻量步行'],
+        items: [
+          ['07:10', '抵达巴黎戴高乐机场 T1', '入境、取行李'],
+          ['09:00左右', '前往巴黎市区', 'T1乘 CDGVAL，再换 RER B'],
+          ['10:15—10:45', '寄存行李', '以实际住处位置为准'],
+          ['11:00—12:00', '早午餐', '住处或蒙马特附近'],
+          ['12:00—15:00', '蒙马特高地与圣心大教堂', '周边街巷轻量步行'],
+          ['15:00—17:00', '入住与休息', '保留时差恢复时间'],
+          ['17:30—18:15', '前往特罗卡德罗广场', '不安排香榭丽舍购物'],
+          ['18:15—20:30', '特罗卡德罗、埃菲尔铁塔外观与塞纳河畔', '以拍照和夜景为主'],
+          ['20:30后', '晚餐与闪灯', '视体力等待铁塔闪灯；当晚不安排游船']
+        ]
+      },
+      {
+        id: '0928', month: '9月', day: '28', week: '周一', city: '巴黎',
+        summary: '卢浮宫 · 香榭丽舍购物 · 凯旋门外观', filters: ['paris'], color: palette.paris,
+        tags: ['卢浮宫必约', '购物日', '游船可选'],
+        items: [
+          ['08:15', '早餐并前往卢浮宫', '提前抵达安检区'],
+          ['09:00—12:15', '卢浮宫', '建议预约 09:00 或 09:30'],
+          ['12:30—13:45', '午餐', '卢浮宫、皇家宫殿或杜乐丽花园周边'],
+          ['14:00—14:30', '杜乐丽花园 → 协和广场', '只作顺路经过'],
+          ['14:30—18:15', '香榭丽舍大街购物', '可随时搭地铁缩短步行'],
+          ['15:00—16:00', 'lululemon Champs-Élysées', '38 Avenue des Champs-Élysées；以实际逛店时长为准'],
+          ['18:15—19:00', '凯旋门外观与拍照', '不登顶'],
+          ['19:15—20:15', '晚餐', '香街或返回住处附近'],
+          ['20:30后', '塞纳河游船可选', '仅在天气、体力和兴致都合适时参加']
+        ],
+        note: '香街不必完整步行；购物完成后可直接乘地铁。塞纳河游船不应压缩购物或休息时间。'
+      },
+      {
+        id: '0929', month: '9月', day: '29', week: '周二', city: '巴黎 → 米兰',
+        summary: '歌剧院与百货购物 · 晚飞米兰', filters: ['paris','transit'], color: palette.paris,
+        tags: ['购物上午', '机场待确认'],
+        items: [
+          ['08:30', '早餐、退房并寄存行李', ''],
+          ['09:30—10:00', '巴黎歌剧院外观与广场', '不进入大型博物馆'],
+          ['10:00—12:15', '老佛爷 / 春天百货购物', '按品牌与退税需求自由分配'],
+          ['11:45—12:15', '老佛爷屋顶露台可选', '天气不好时取消'],
+          ['12:15—13:15', '午餐', '歌剧院或百货周边'],
+          ['13:30后', '取行李并前往机场', 'CDG约15:30离开；ORY约15:45—16:00；BVA需14:00—14:30离开'],
+          ['19:30', '飞往米兰', '巴黎起飞与米兰到达机场待确认'],
+          ['抵达后', '前往住处办理入住', '不安排正式景点']
+        ]
+      },
+      {
+        id: '0930', month: '9月', day: '30', week: '周三', city: '米兰 → 佛罗伦萨',
+        summary: '米兰大教堂 · 高铁 · 佛罗伦萨日落', filters: ['italy','transit'], color: palette.italy,
+        tags: ['高铁待买', '米兰半日'],
+        items: [
+          ['08:00', '退房并寄存行李', '中央车站附近'],
+          ['08:30—10:30', '米兰大教堂与埃马努埃莱二世长廊', '以外观、内部与拍照为主'],
+          ['10:30—11:15', '取行李，前往 Milano Centrale', ''],
+          ['11:30—12:30之间', '直达高铁前往佛罗伦萨', 'Milano Centrale → Firenze S.M.N.'],
+          ['13:30—14:30', '寄存行李 / 入住并午餐', ''],
+          ['15:30—17:00', '领主广场 → 老桥 → 阿诺河畔', '老城步行'],
+          ['17:00—18:00', '前往米开朗琪罗广场', '步行或公交'],
+          ['18:00—19:15', '米开朗琪罗广场日落', ''],
+          ['19:30后', '返回老城晚餐', '']
+        ],
+        note: '米兰大教堂默认外观、内部和长廊；若临时决定登屋顶，预约09:00并确保10:30前结束。'
+      },
+      {
+        id: '1001', month: '10月', day: '1', week: '周四', city: '比萨 / 佛罗伦萨',
+        summary: '比萨半日外观拍照 · 乌菲兹美术馆', filters: ['italy'], color: palette.italy,
+        tags: ['乌菲兹必约', '斜塔不登'],
+        items: [
+          ['06:45', '早餐或便携早餐', ''],
+          ['07:15—07:45之间', '佛罗伦萨出发前往比萨', 'Firenze S.M.N. 区域列车'],
+          ['08:20—08:50', '抵达比萨', '优先查看 Pisa S. Rossore 班次'],
+          ['09:00—10:30', '奇迹广场、比萨斜塔、主教座堂与洗礼堂外观', '以游客照和外观打卡为主'],
+          ['10:30—11:15', '返回车站', ''],
+          ['11:00—12:30之间', '返回佛罗伦萨', '目标12:30前抵达'],
+          ['12:30—13:30', '午餐', '乌菲兹附近'],
+          ['14:00—16:45', '乌菲兹美术馆', '必须预约14:00'],
+          ['17:00后', '自由逛街、冰淇淋与晚餐', '不再安排重景点']
+        ],
+        note: '本次不购买斜塔登塔票，不安排存包和登塔时间；可根据拍照排队情况提前返程。'
+      },
+      {
+        id: '1002', month: '10月', day: '2', week: '周五', city: '佛罗伦萨 → 罗马',
+        summary: '大教堂外观 · 高铁 · 许愿池 · 圣依纳爵堂', filters: ['italy','rome','transit'], color: palette.rome,
+        tags: ['高铁待买', '教堂外观'],
+        items: [
+          ['07:15—08:00', '圣母百花大教堂、乔托钟楼与洗礼堂外观', '不登顶，只拍照'],
+          ['08:00—09:00', '早餐', ''],
+          ['09:00—09:45', '退房并前往 Firenze S.M.N.', ''],
+          ['10:00—10:45之间', '高铁前往罗马', 'Firenze S.M.N. → Roma Termini'],
+          ['11:30—12:30', '寄存行李 / 入住', ''],
+          ['12:30—14:00', '午餐与短休息', ''],
+          ['14:30—15:10', '西班牙广场与西班牙台阶', ''],
+          ['15:20—16:05', '特雷维喷泉 / 许愿池', '重点拍照与投币'],
+          ['16:15—17:00', '圣依纳爵堂', '观看天顶壁画与视觉错觉穹顶'],
+          ['17:10—18:00', '万神殿', '是否进入内部按现场体力决定'],
+          ['18:00—18:45', '纳沃纳广场', ''],
+          ['19:00后', '晚餐', '']
+        ],
+        note: '圣依纳爵堂位于罗马市中心而非梵蒂冈，与许愿池、万神殿距离较近；遇弥撒或礼仪时以现场安排为准。'
+      },
+      {
+        id: '1003', month: '10月', day: '3', week: '周六', city: '罗马',
+        summary: '斗兽场外观 · 古城轴线 · Monti', filters: ['rome'], color: palette.rome,
+        tags: ['无预约', '外观拍照'],
+        items: [
+          ['08:30—09:30', '斗兽场外观拍照', '可从 Via Nicola Salvi 或 Colle Oppio 一带取景'],
+          ['09:30—10:00', '君士坦丁凯旋门', '外观'],
+          ['10:00—11:15', '帝国广场大道与古罗马广场外观', '不进入遗址区'],
+          ['11:15—12:15', '卡比托利欧山与广场', '可看古罗马广场高位视角'],
+          ['12:30—14:00', '午餐', 'Monti 或威尼斯广场周边'],
+          ['14:15—15:15', '威尼斯广场与维托里亚诺外观', ''],
+          ['15:30—17:30', 'Monti街区散步、咖啡与购物', '放松安排'],
+          ['17:30后', '自由晚餐', '可选回许愿池补拍夜景']
+        ],
+        note: '默认不购买斗兽场、古罗马广场和帕拉蒂尼山联票；若临近出发改变主意，再单独查看官方余票。'
+      },
+      {
+        id: '1004', month: '10月', day: '4', week: '周日', city: '罗马',
+        summary: 'Citywalk · 真理之口 · 阿文蒂诺山', filters: ['rome'], color: palette.rome,
+        tags: ['无硬预约', '步行日'],
+        items: [
+          ['09:00—09:40', '圣天使桥与圣天使堡外观', ''],
+          ['09:40—10:30', 'Via Giulia → Piazza Farnese → 鲜花广场', ''],
+          ['10:40—11:30', '犹太区、Portico d’Ottavia 与马切罗剧场外观', ''],
+          ['11:45—12:40', '真理之口与科斯梅丁圣母教堂外观', '预留排队与拍照时间'],
+          ['12:45—14:00', '午餐', '真理之口、犹太区或阿文蒂诺山附近'],
+          ['14:15—15:45', '阿文蒂诺山、橘园与马耳他骑士团钥匙孔', ''],
+          ['16:00—16:30', '马克西穆斯竞技场外观', ''],
+          ['17:00后', '特拉斯提弗列、圣母广场与晚餐', '']
+        ],
+        note: '真理之口主要是排队拍游客照；开放时段可能因宗教活动调整，建议临行前复核并设置最长排队时间。'
+      },
+      {
+        id: '1005', month: '10月', day: '5', week: '周一', city: '梵蒂冈 / 罗马',
+        summary: '圣彼得大教堂 · 梵蒂冈博物馆 · 西斯廷礼拜堂', filters: ['rome'], color: palette.rome,
+        tags: ['梵蒂冈必约', '早出发'],
+        items: [
+          ['06:45', '从住处出发', ''],
+          ['07:15', '抵达圣彼得广场安检区域', ''],
+          ['07:30—09:00', '圣彼得大教堂与圣彼得广场', '不登穹顶'],
+          ['09:00—09:45', '早餐 / 咖啡', '步行前往博物馆入口'],
+          ['10:00—13:30', '梵蒂冈博物馆、拉斐尔房间与西斯廷礼拜堂', '建议预约10:00—10:30'],
+          ['13:45—15:00', 'Prati区午餐', ''],
+          ['15:00—17:00', '休息或Prati轻量购物', ''],
+          ['晚间', '自由晚餐', '不安排硬景点']
+        ]
+      },
+      {
+        id: '1006', month: '10月', day: '6', week: '周二', city: '罗马 → 布达佩斯',
+        summary: '飞往布达佩斯 · 多瑙河夜游', filters: ['rome','budapest','transit'], color: palette.budapest,
+        tags: ['机场待确认', '游船建议'],
+        items: [
+          ['08:00—09:00', '早餐、退房并寄存行李', ''],
+          ['09:00—10:30', '住处周边散步与咖啡', '不安排必须完成的景点'],
+          ['10:30—11:00', '取行李', ''],
+          ['11:00—11:30', '前往罗马出发机场', '机场待确认'],
+          ['14:30—16:20', '飞往布达佩斯', '抵达 BUD'],
+          ['16:20—17:15', '下机与取行李', ''],
+          ['17:15—18:15', '前往市中心', '100E机场快线至 Deák Ferenc tér 一带'],
+          ['18:15—19:00', '办理入住', ''],
+          ['19:00—20:00', '晚餐', ''],
+          ['20:30—21:30', '多瑙河游船', '建议预约20:30或21:00；可改退优先']
+        ]
+      },
+      {
+        id: '1007', month: '10月', day: '7', week: '周三', city: '布达佩斯 → 迪拜',
+        summary: '布达与佩斯核心景点 · FZ1406返程', filters: ['budapest','transit'], color: palette.budapest,
+        tags: ['FZ1406', '22:40起飞'],
+        items: [
+          ['07:30', '退房并寄存行李', ''],
+          ['08:00—09:30', '渔人堡与马加什教堂外观', '清晨拍照'],
+          ['09:30—11:00', '布达城堡区与城堡露台', ''],
+          ['11:00—11:30', '步行过链桥至佩斯侧', ''],
+          ['11:45—13:00', '午餐', ''],
+          ['13:00—14:00', '圣伊斯特万大教堂', '内部参观可选'],
+          ['14:15—15:45', '国会大厦外观与多瑙河鞋履纪念碑', '不进入国会大厦'],
+          ['16:00—17:15', '咖啡、早晚餐或最后购物', ''],
+          ['17:30—18:15', '取行李', ''],
+          ['18:45', '前往布达佩斯机场', '100E或打车'],
+          ['19:30—19:40', '抵达 BUD', '办理值机与安检'],
+          ['22:40', 'FZ1406 起飞', 'BUD → DXB T3']
+        ]
+      },
+      {
+        id: '1008', month: '10月', day: '8', week: '周四', city: '迪拜 → 香港',
+        summary: '迪拜转机 · 返回香港', filters: ['transit'], color: palette.transit,
+        tags: ['联程返程'],
+        items: [
+          ['07:05', '抵达迪拜国际机场 T3', ''],
+          ['后续', '按联程机票完成转机并返回香港', '']
+        ]
+      }
+    ];
+
+    const reservations = [
+      ['梵蒂冈博物馆 + 西斯廷礼拜堂', '10.5 周一', '10:00—10:30', 'must', '必须预约', '与07:15到场的圣彼得大教堂衔接'],
+      ['卢浮宫', '9.28 周一', '09:00—09:30', 'must', '必须预约', '上午参观，下午转香榭丽舍购物'],
+      ['乌菲兹美术馆', '10.1 周四', '14:00', 'must', '必须预约', '优先保护该时段；比萨延误时提前返程'],
+      ['万神殿内部', '10.2 周五', '17:10左右', 'optional', '可选', '按现场体力和排队情况决定'],
+      ['米兰大教堂屋顶', '9.30 周三', '09:00', 'optional', '可选', '若参加，必须确保10:30前结束'],
+      ['塞纳河游船', '9.28 周一', '20:30后', 'optional', '非必选', '不压缩购物、晚餐或休息时间'],
+      ['多瑙河游船', '10.6 周二', '20:30—21:00', 'recommend', '建议预约', '选择可改退产品，航班延误时直接改签或取消']
+    ];
+
+    const transports = [
+      ['9.26—9.27', '香港 → 曼谷 → 巴黎', '飞机', '19:05 / 20:45 / 00:05 / 07:10', 'confirmed', '已确认'],
+      ['9.29', '巴黎 → 米兰', '飞机', '19:30起飞', 'pending', '起降机场、航班号待补充'],
+      ['9.30', 'Milano Centrale → Firenze S.M.N.', 'Italo / Trenitalia高铁', '11:30—12:30出发', 'pending', '待购买'],
+      ['10.1', 'Firenze S.M.N. ↔ Pisa', 'Trenitalia区域列车', '早去午回', 'recommend', '临近购买即可'],
+      ['10.2', 'Firenze S.M.N. → Roma Termini', 'Italo / Trenitalia高铁', '10:00—10:45出发', 'pending', '待购买'],
+      ['10.6', '罗马 → 布达佩斯', '飞机', '14:30—16:20', 'pending', '罗马出发机场、航班号待补充'],
+      ['10.7', '布达佩斯 → 迪拜', 'FZ1406', '22:40起飞', 'confirmed', 'BUD → DXB T3'],
+      ['10.8', '迪拜 → 香港', '联程航班', '按机票执行', 'pending', '复核最终航班时刻']
+    ];
+
+    const contingencies = [
+      ['9月28日购物时间超出预期', '直接取消塞纳河游船，不压缩香街购物和晚餐。'],
+      ['巴黎—米兰从 BVA 起飞', '缩短百货购物，最晚14:00左右离开巴黎市中心。'],
+      ['9月30日米兰参观超时', '按时乘高铁，取消额外购物，不压缩佛罗伦萨行程。'],
+      ['10月1日比萨列车延误', '优先保证14:00乌菲兹，缩短拍照或提前返程。'],
+      ['10月2日抵达罗马延误', '优先保留许愿池 + 圣依纳爵堂；西班牙广场或万神殿可挪到其他罗马日。'],
+      ['10月3日天气不适合拍照', '斗兽场外观挪到10月4日早晨，10月3日改为Monti、咖啡和购物。'],
+      ['10月4日真理之口排队过长', '设置最长排队时间，超过后只看外观并继续前往阿文蒂诺山。'],
+      ['10月6日航班延误', '多瑙河游船改签或取消，不强行赶固定班次。'],
+      ['10月7日机场交通不稳定', '直接打车，目标仍为19:30—19:40抵达 BUD。']
+    ];
+
+    const checklistGroups = [
+      { title: '航班与订单', items: [
+        ['flight-paris-milan', '确认9月29日巴黎—米兰的起飞机场、到达机场和航班号。'],
+        ['flight-rome-budapest', '确认10月6日罗马—布达佩斯的罗马出发机场和航班号。'],
+        ['flight-dubai-hk', '确认10月8日迪拜—香港航班时刻。'],
+        ['offline-orders', '离线保存护照、签证、保险、机票与重要订单。']
+      ]},
+      { title: '门票与活动', items: [
+        ['ticket-vatican', '预约10月5日梵蒂冈博物馆10:00—10:30。'],
+        ['ticket-louvre', '预约9月28日卢浮宫09:00—09:30。'],
+        ['ticket-uffizi', '预约10月1日乌菲兹14:00。'],
+        ['decide-pantheon', '决定是否进入万神殿内部。'],
+        ['decide-duomo-roof', '决定是否登米兰大教堂屋顶。'],
+        ['decide-seine', '视天气与体力决定是否乘塞纳河游船。'],
+        ['ticket-danube', '选择可改退的布达佩斯多瑙河游船产品。']
+      ]},
+      { title: '购物', items: [
+        ['lulu-check', '出发前复核 lululemon Champs-Élysées 营业时间与地址。'],
+        ['shopping-list', '整理想购买的品牌、尺码、颜色与预算。'],
+        ['tax-refund', '了解巴黎购物退税门槛、护照要求和机场退税流程。']
+      ]},
+      { title: '城际交通', items: [
+        ['train-milan-florence', '购买米兰—佛罗伦萨高铁票。'],
+        ['train-florence-rome', '购买佛罗伦萨—罗马高铁票。'],
+        ['transport-status', '出发前48小时检查 RER B、意大利铁路和机场交通状态。']
+      ]},
+      { title: '文件与物品', items: [
+        ['paper-copies', '准备纸质证件复印件。'],
+        ['power-kit', '准备欧标转换插头、充电宝、手机挂绳和防盗包。'],
+        ['church-clothes', '准备可遮盖肩膀与膝盖的教堂参观服装。'],
+        ['weather-kit', '准备薄外套、雨具和舒适步行鞋。']
+      ]}
+    ];
+
+    const resources = [
+      { title: '巴黎', links: [
+        ['CDG公共交通', 'https://www.parisaeroport.fr/en/passengers/transport-parking/public-transport-paris/cdg'],
+        ['CDGVAL航站楼接驳', 'https://www.parisaeroport.fr/en/passengers/transport-parking/shuttles-between-terminals/cdg'],
+        ['卢浮宫开放时间与预约', 'https://www.louvre.fr/en/visit/hours-admission'],
+        ['香榭丽舍官方旅游介绍', 'https://parisjetaime.com/eng/article/all-you-need-to-know-about-the-champs-elysees-a708'],
+        ['lululemon Champs-Élysées', 'https://www.lululemon.fr/fr-fr/stores?storeId=64104'],
+        ['老佛爷屋顶露台', 'https://haussmann.galerieslafayette.com/en/the-terrace-at-galeries-lafayette/']
+      ]},
+      { title: '意大利与梵蒂冈', links: [
+        ['Italo：米兰—佛罗伦萨', 'https://www.italotreno.com/en/destinations-timetable/milan-florence-tickets'],
+        ['Italo：佛罗伦萨—罗马', 'https://www.italotreno.com/en/destinations-timetable/florence-rome-tickets'],
+        ['乌菲兹美术馆', 'https://www.uffizi.it/en/the-uffizi'],
+        ['佛罗伦萨大教堂', 'https://duomo.firenze.it/en/discover/cathedral'],
+        ['圣依纳爵堂', 'https://chiesasantignazio.it/en/'],
+        ['罗马市旅游局：真理之口', 'https://www.turismoroma.it/en/places/mouth-truth'],
+        ['梵蒂冈博物馆官方购票', 'https://tickets.museivaticani.va/'],
+        ['圣彼得大教堂开放时间', 'https://www.basilicasanpietro.va/en/opening-hours']
+      ]},
+      { title: '布达佩斯与返程', links: [
+        ['100E机场快线', 'https://bkk.hu/en/travel-information/airport-express/'],
+        ['迪拜航空布达佩斯—迪拜', 'https://www.flydubai.com/en-pl/flights-from-budapest-to-dubai/'],
+        ['迪拜航空值机规则', 'https://www.flydubai.com/en/flying-with-us/check-in/']
+      ]}
+    ];
+
+    const statusClasses = {
+      must: 'status-must', recommend: 'status-recommend', optional: 'status-optional',
+      confirmed: 'status-confirmed', pending: 'status-pending'
+    };
+
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+    function escapeHTML(value = '') {
+      return String(value).replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+    }
+
+    function renderRoute() {
+      $('#routeTrack').innerHTML = routeStops.map(stop => `
+        <div class="route-stop">
+          <span class="route-icon" aria-hidden="true">${escapeHTML(stop.icon)}</span>
+          <span class="route-city">${escapeHTML(stop.city).replace(/\n/g,'<br>')}</span>
+          <span class="route-mode">${escapeHTML(stop.mode)}</span>
+        </div>`).join('');
+    }
+
+    function renderDecisions() {
+      $('#decisionGrid').innerHTML = decisions.map(item => `
+        <article class="decision-card">
+          <div class="decision-icon" aria-hidden="true">${item.icon}</div>
+          <h3>${escapeHTML(item.title)}</h3>
+          <p>${escapeHTML(item.text)}</p>
+        </article>`).join('');
+    }
+
+    function renderItinerary() {
+      $('#daysList').innerHTML = itinerary.map((day, index) => `
+        <details class="day-card" data-filters="${day.filters.join(' ')}" style="--day-color:${day.color}" ${index === 1 ? 'open' : ''}>
+          <summary>
+            <div class="date-box">
+              <span class="date-number">${escapeHTML(day.day)}</span>
+              <span class="date-meta"><strong>${escapeHTML(day.month)}</strong><span>${escapeHTML(day.week)}</span></span>
+            </div>
+            <div class="day-summary">
+              <h3>${escapeHTML(day.city)}</h3>
+              <p>${escapeHTML(day.summary)}</p>
+            </div>
+            <div class="day-tags">${day.tags.map(tag => `<span class="tag">${escapeHTML(tag)}</span>`).join('')}</div>
+            <span class="chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="day-body">
+            <div class="timeline">
+              ${day.items.map(([time, title, note]) => `
+                <div class="time-row">
+                  <div class="time">${escapeHTML(time)}</div>
+                  <div><span class="event-title">${escapeHTML(title)}</span>${note ? `<span class="event-note">${escapeHTML(note)}</span>` : ''}</div>
+                </div>`).join('')}
+            </div>
+            ${day.note ? `<div class="day-note">${escapeHTML(day.note)}</div>` : ''}
+          </div>
+        </details>`).join('');
+    }
+
+    function renderReservations() {
+      $('#reservationRows').innerHTML = reservations.map(([name, date, time, type, label, note]) => `
+        <tr><td><strong>${escapeHTML(name)}</strong></td><td>${escapeHTML(date)}</td><td>${escapeHTML(time)}</td><td><span class="status ${statusClasses[type]}">${escapeHTML(label)}</span></td><td>${escapeHTML(note)}</td></tr>`).join('');
+    }
+
+    function renderTransport() {
+      $('#transportRows').innerHTML = transports.map(([date, route, mode, time, type, label]) => `
+        <tr><td>${escapeHTML(date)}</td><td><strong>${escapeHTML(route)}</strong></td><td>${escapeHTML(mode)}</td><td>${escapeHTML(time)}</td><td><span class="status ${statusClasses[type]}">${escapeHTML(label)}</span></td></tr>`).join('');
+    }
+
+    function renderContingencies() {
+      $('#emergencyGrid').innerHTML = contingencies.map(([situation, action], index) => `
+        <article class="emergency-card">
+          <span class="emergency-no">${index + 1}</span>
+          <div><h3>${escapeHTML(situation)}</h3><p>${escapeHTML(action)}</p></div>
+        </article>`).join('');
+    }
+
+    const storageKey = 'europe-trip-checklist-v1';
+    let savedChecks = {};
+    try { savedChecks = JSON.parse(localStorage.getItem(storageKey) || '{}'); } catch (_) { savedChecks = {}; }
+
+    function renderChecklist() {
+      $('#checkGroups').innerHTML = checklistGroups.map(group => `
+        <section class="check-group">
+          <h3>${escapeHTML(group.title)}</h3>
+          <div class="check-list">
+            ${group.items.map(([id, text]) => `
+              <label class="check-row">
+                <input type="checkbox" data-check-id="${escapeHTML(id)}" ${savedChecks[id] ? 'checked' : ''} />
+                <span class="check-text">${escapeHTML(text)}</span>
+              </label>`).join('')}
+          </div>
+        </section>`).join('');
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const boxes = $$('[data-check-id]');
+      const completed = boxes.filter(box => box.checked).length;
+      const total = boxes.length;
+      const percent = total ? Math.round(completed / total * 100) : 0;
+      $('#progressText').textContent = `${completed} / ${total} 项已完成`;
+      $('#progressPercent').textContent = `${percent}%`;
+      $('#progressRing').style.setProperty('--progress', `${percent}%`);
+    }
+
+    function persistChecklist() {
+      const state = {};
+      $$('[data-check-id]').forEach(box => state[box.dataset.checkId] = box.checked);
+      try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch (_) {}
+      savedChecks = state;
+      updateProgress();
+    }
+
+    function renderResources() {
+      $('#resourcesGrid').innerHTML = resources.map(group => `
+        <article class="resource-card">
+          <h3>${escapeHTML(group.title)}</h3>
+          <div class="resource-list">
+            ${group.links.map(([label, url]) => `<a class="resource-link" href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer"><span>${escapeHTML(label)}</span><span aria-hidden="true">↗</span></a>`).join('')}
+          </div>
+        </article>`).join('');
+    }
+
+    function showToast(message) {
+      const toast = $('#toast');
+      toast.textContent = message;
+      toast.classList.add('is-showing');
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove('is-showing'), 2600);
+    }
+
+    async function shareSite() {
+      const data = {
+        title: document.title,
+        text: '2026年欧洲三国行程执行网站：巴黎、意大利与布达佩斯。',
+        url: location.href
+      };
+      try {
+        if (navigator.share && location.protocol !== 'file:') {
+          await navigator.share(data);
+          return;
+        }
+        if (navigator.clipboard && location.protocol !== 'file:') {
+          await navigator.clipboard.writeText(location.href);
+          showToast('网站地址已复制');
+          return;
+        }
+        showToast('当前为本地文件，请直接分享 index.html 或压缩包');
+      } catch (error) {
+        if (error?.name !== 'AbortError') showToast('分享失败，请手动复制浏览器地址');
+      }
+    }
+
+    function setupFilters() {
+      $$('.filter-btn').forEach(button => button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        $$('.filter-btn').forEach(btn => {
+          const active = btn === button;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-pressed', String(active));
+        });
+        $$('.day-card').forEach(card => {
+          const match = filter === 'all' || card.dataset.filters.split(' ').includes(filter);
+          card.hidden = !match;
+        });
+      }));
+    }
+
+    function setupSectionObserver() {
+      const links = $$('.nav-link');
+      const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+      if (!('IntersectionObserver' in window)) return;
+      const observer = new IntersectionObserver(entries => {
+        const visible = entries.filter(entry => entry.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        links.forEach(link => link.classList.toggle('is-active', link.getAttribute('href') === `#${visible.target.id}`));
+      }, { rootMargin: '-24% 0px -64% 0px', threshold: [0, .15, .4] });
+      sections.forEach(section => observer.observe(section));
+    }
+
+    function init() {
+      renderRoute();
+      renderDecisions();
+      renderItinerary();
+      renderReservations();
+      renderTransport();
+      renderContingencies();
+      renderChecklist();
+      renderResources();
+      setupFilters();
+      setupSectionObserver();
+
+      $('#expandAll').addEventListener('click', () => $$('.day-card:not([hidden])').forEach(card => card.open = true));
+      $('#collapseAll').addEventListener('click', () => $$('.day-card:not([hidden])').forEach(card => card.open = false));
+      $('#shareBtn').addEventListener('click', shareSite);
+      $('#printBtn').addEventListener('click', () => window.print());
+      $('#checkGroups').addEventListener('change', event => {
+        if (event.target.matches('[data-check-id]')) persistChecklist();
+      });
+      $('#resetChecklist').addEventListener('click', () => {
+        $$('[data-check-id]').forEach(box => box.checked = false);
+        persistChecklist();
+        showToast('检查清单已重置');
+      });
+    }
+
+    init();
+  </script>
+</body>
+</html>
