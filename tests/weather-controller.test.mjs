@@ -3,13 +3,12 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 
-test('a partly aged startup cache is rechecked within a minute of expiry', async () => {
+test('inline forecasts load without a standalone panel and refresh a partly aged cache on expiry', async () => {
   const start = Date.parse('2026-09-27T10:00:00Z');
   let clock = start;
   let calls = 0;
   const timers = [];
   const element = () => ({ innerHTML: '', textContent: '', value: '', addEventListener() {}, setAttribute() {} });
-  const elements = Object.fromEntries(['#weatherCity', '#weatherCurrent', '#weatherRefresh', '#weatherStatus'].map(id => [id, element()]));
   const slot = { ...element(), dataset: { weatherDate: '2026-09-28' } };
   const payload = {
     timezone: 'Europe/Paris',
@@ -22,7 +21,7 @@ test('a partly aged startup cache is rechecked within a minute of expiry', async
   const context = {
     URL, Intl, AbortController, setTimeout, clearTimeout,
     Date: class extends Date { static now() { return clock; } },
-    document: { readyState: 'complete', hidden: false, querySelector: id => elements[id], querySelectorAll: () => [slot], addEventListener() {} },
+    document: { readyState: 'complete', hidden: false, querySelector: () => null, querySelectorAll: () => [slot], addEventListener() {} },
     localStorage: { getItem: key => disk.get(key) ?? null, setItem: (key, value) => disk.set(key, value) },
     addEventListener() {},
     setInterval: (callback, delay) => { timers.push({ callback, delay, next: clock + delay }); },
@@ -31,6 +30,7 @@ test('a partly aged startup cache is rechecked within a minute of expiry', async
   for (const file of ['weather.js', 'weather-ui.js']) vm.runInNewContext(fs.readFileSync(new URL('../original/' + file, import.meta.url), 'utf8'), context);
   await new Promise(setImmediate);
   assert.equal(calls, 0, 'fresh startup cache avoids a network request');
+  assert.ok(slot.innerHTML.includes('14–23°C'), 'the itinerary displays weather without standalone controls');
   const target = start + 2 * 60000;
   for (const timer of timers) {
     while (timer.next <= target) {
@@ -42,5 +42,5 @@ test('a partly aged startup cache is rechecked within a minute of expiry', async
   }
   clock = target;
   assert.equal(calls, 1, 'expiry triggers one refresh, not a second thirty-minute wait');
-  assert.ok(elements['#weatherCurrent'].innerHTML.includes('12:01'));
+  assert.ok(slot.innerHTML.includes('12:01'));
 });

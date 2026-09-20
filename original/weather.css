@@ -1,62 +1,18 @@
-/* Keep the itinerary's paper, navy and warm accent palette. */
-.weather-controls { display:flex; align-items:end; gap:12px; flex-wrap:wrap; }
-.weather-control { display:grid; gap:5px; color:var(--navy); font-size:14px; font-weight:700; }
-.weather-control select { font:inherit; font-size:16px; min-height:46px; min-width:200px; max-width:100%; padding:9px 36px 9px 12px; border:1px solid var(--line); border-radius:12px; background:var(--surface-strong); color:var(--ink); cursor:pointer; }
-.weather-controls button { min-height:46px; cursor:pointer; }
-.weather-controls button:disabled { opacity:.65; cursor:wait; }
-.weather-controls :focus-visible { outline:3px solid var(--blue); outline-offset:4px; }
-.weather-panel { border:1px solid var(--line); border-radius:var(--radius-lg); background:var(--surface-strong); box-shadow:var(--shadow-soft); overflow:hidden; }
-.weather-current { min-height:270px; padding:28px 30px 18px; }
-.weather-now { display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
-.weather-icon { display:block; width:28px; height:28px; flex:0 0 auto; }
-.weather-condition-icon { width:84px; height:84px; display:grid; place-items:center; border-radius:24px; background:#f4ead7; color:var(--navy); }
-.weather-condition-icon .weather-icon { width:52px; height:52px; }
-.weather-eyebrow { margin:0; font-size:14px; font-weight:700; color:var(--navy); }
-.weather-temperature { color:var(--navy); font-size:60px; font-weight:650; line-height:1.1; letter-spacing:-3px; font-variant-numeric:tabular-nums; }
-.weather-temperature > span { vertical-align:top; font-size:22px; line-height:2; letter-spacing:0; margin-left:4px; }
-.weather-condition { display:flex; flex-direction:column; gap:3px; margin-left:auto; color:#536074; font-size:14px; }
-.weather-condition > strong { color:var(--navy); font-size:20px; }
-.weather-badge { align-self:flex-start; display:inline-block; margin-top:4px; border-radius:20px; padding:3px 9px; font-size:12px; color:#326353; background:#e3f1ec; }
-.weather-badge.is-stale { color:#875322; background:#fbefd8; }
-.weather-metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin:24px 0 12px; border-top:1px solid var(--line); padding-top:16px; gap:16px; }
-.weather-metrics dt { color:#536074; font-size:13px; }
-.weather-metrics dd { color:var(--navy); margin:4px 0 0; font-size:20px; font-weight:700; font-variant-numeric:tabular-nums; }
-.weather-timestamp { color:#536074; font-size:12px; margin:16px 0 0; overflow-wrap:anywhere; }
-.weather-timestamp.is-stale,.weather-caption.is-stale { color:#875322; }
-.weather-status { margin:0; padding:12px 20px; border-top:1px solid var(--line); background:#f4f1e9; color:#536074; font-size:13px; }
-.weather-source { color:#536074; font-size:13px; margin:14px 0 0; line-height:1.75; }
+/* Weather is part of each itinerary summary, never a separate dashboard. */
+.day-weather { display:flex; flex-direction:column; gap:5px; margin-top:9px; min-width:0; }
+.weather-inline { display:flex; align-items:center; flex-wrap:wrap; gap:4px 8px; color:#536074; font-size:13px; line-height:1.55; font-weight:400; }
+.weather-icon { display:block; width:18px; height:18px; flex:0 0 auto; color:var(--blue); }
+.weather-city,.weather-inline strong { color:var(--navy); font-weight:650; }
+.weather-inline strong { white-space:nowrap; font-variant-numeric:tabular-nums; }
+.weather-note { font-size:12px; color:#67715e; }
+.weather-note.is-stale { color:#875322; }
+.weather-inline.is-pending { color:#687282; font-size:12px; }
+.weather-source { margin:18px 0 0; font-size:12px; color:#536074; line-height:1.7; }
 .weather-source a { color:var(--blue); text-underline-offset:3px; }
-.weather-empty { display:flex; align-items:center; gap:18px; min-height:212px; color:var(--navy); }
-.weather-empty .weather-icon { width:48px; height:48px; }
-.weather-empty p { margin:6px 0 0; color:#536074; font-size:14px; }
-.day-weather { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:16px 0 0; }
-.weather-chip { padding:16px; background:#f1f5f4; border:1px solid #dce5e1; border-radius:14px; min-width:0; }
-.weather-chip:only-child { grid-column:1 / -1; }
-.weather-chip.is-pending { background:#f5f3ee; border-color:var(--line); }
-.weather-chip-head { display:flex; justify-content:space-between; flex-wrap:wrap; gap:4px 12px; color:var(--navy); font-size:14px; }
-.weather-chip-head > span { font-size:12px; color:#536074; }
-.weather-chip-main { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:10px 0; color:var(--navy); font-size:15px; }
-.weather-range { margin-left:auto; font-size:20px; white-space:nowrap; font-variant-numeric:tabular-nums; }
-.weather-caption { margin:4px 0 0; color:#536074; font-size:12px; overflow-wrap:anywhere; }
 @media (max-width:640px) {
-  .weather-controls { width:100%; }
-  .weather-control { flex:1; min-width:0; }
-  .weather-control select { width:100%; min-width:0; }
-  .weather-current { padding:22px 18px 16px; min-height:355px; }
-  .weather-now { gap:14px; }
-  .weather-condition-icon { width:64px; height:64px; border-radius:18px; }
-  .weather-condition-icon .weather-icon { width:42px; height:42px; }
-  .weather-temperature { font-size:50px; }
-  .weather-condition { margin-left:0; flex:1 1 100%; flex-direction:row; align-items:center; gap:8px 14px; flex-wrap:wrap; }
-  .weather-condition > strong { font-size:18px; }
-  .weather-badge { margin:0; align-self:center; }
-  .weather-metrics { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:18px; }
-  .weather-metrics dd { font-size:18px; }
-  .day-weather { grid-template-columns:1fr; }
+  .weather-inline { gap:3px 6px; font-size:12px; }
+  .weather-icon { width:16px; height:16px; }
 }
 @media print {
-  .weather-controls { display:none; }
-  .weather-panel,.weather-chip { box-shadow:none; break-inside:avoid; }
-  .weather-current { min-height:0; }
-  .weather-source,.weather-timestamp { color:#333; }
+  .weather-inline,.weather-source { color:#333; }
 }

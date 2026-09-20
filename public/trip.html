@@ -6,9 +6,9 @@
   <meta name="theme-color" content="#203451" />
   <meta name="description" content="2026年9月26日至10月8日，巴黎、米兰、佛罗伦萨、罗马、梵蒂冈与布达佩斯行程执行网站。" />
   <title>欧洲三国行程｜2026.09.26—10.08</title>
-  <link rel="stylesheet" href="weather.css?v=1" />
+  <link rel="stylesheet" href="weather.css?v=2" />
   <script src="weather.js?v=1" defer></script>
-  <script src="weather-ui.js?v=1" defer></script>
+  <script src="weather-ui.js?v=2" defer></script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23203451'/%3E%3Cpath d='M12 42c12-17 29-23 40-22-7 7-11 16-12 26-10-5-19-5-28-4Z' fill='%23e4b66b'/%3E%3Ccircle cx='44' cy='18' r='5' fill='%23fff7e8'/%3E%3C/svg%3E" />
   <style>
     :root {
@@ -404,31 +404,6 @@
     .route-city { display: block; font-weight: 800; font-size: 14px; }
     .route-mode { display: block; margin-top: 2px; color: var(--muted); font-size: 12px; }
 
-    .decision-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 14px;
-    }
-    .decision-card {
-      padding: 20px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--line);
-      background: var(--surface);
-      box-shadow: var(--shadow-soft);
-    }
-    .decision-icon {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      margin-bottom: 13px;
-      background: rgba(63,103,136,.10);
-      font-size: 20px;
-    }
-    .decision-card h3 { margin: 0 0 6px; font-size: 17px; }
-    .decision-card p { margin: 0; color: var(--muted); font-size: 14px; }
-
     .itinerary-toolbar {
       display: flex;
       align-items: center;
@@ -780,7 +755,6 @@
       .hero-inner { grid-template-columns: 1fr; align-items: start; }
       .hero-card { max-width: 640px; }
       .overview-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-      .decision-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .resources-grid { grid-template-columns: 1fr 1fr; }
       .check-shell { grid-template-columns: 1fr; }
       .progress-card { position: static; display: grid; grid-template-columns: 1fr 140px; align-items: center; }
@@ -799,7 +773,7 @@
       .section-head { align-items: start; flex-direction: column; }
       .overview-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
       .stat-card { padding: 17px; }
-      .decision-grid, .resources-grid, .emergency-grid { grid-template-columns: 1fr; }
+      .resources-grid, .emergency-grid { grid-template-columns: 1fr; }
       .day-card summary {
         grid-template-columns: 1fr auto;
         gap: 12px;
@@ -843,7 +817,6 @@
       main { width: 100%; padding: 24px 0; }
       section + section { margin-top: 34px; }
       .overview-grid { grid-template-columns: repeat(4,1fr); }
-      .decision-grid { grid-template-columns: repeat(3,1fr); }
       .resources-grid { grid-template-columns: repeat(3,1fr); }
       .check-shell { grid-template-columns: 1fr; }
       .progress-card { display: none; }
@@ -899,8 +872,6 @@
     <div class="nav-inner">
       <a class="nav-brand" href="#top"><span class="nav-mark">✦</span><span>欧洲行程</span></a>
       <a class="nav-link" href="#overview">概览</a>
-      <a class="nav-link" href="#weather">天气</a>
-      <a class="nav-link" href="#decisions">关键取舍</a>
       <a class="nav-link" href="#itinerary">每日行程</a>
       <a class="nav-link" href="#reservations">预约</a>
       <a class="nav-link" href="#hotels">酒店</a>
@@ -939,37 +910,6 @@
       </div>
     </section>
 
-    <section id="weather" aria-labelledby="weather-title">
-      <div class="section-head">
-        <div>
-          <p class="section-kicker">Destination weather</p>
-          <h2 id="weather-title">把天气也放进行程里</h2>
-          <p class="section-desc">这里看目的地当前天气，每日行程内看旅行当天的预报。按行程推荐城市，也可自由切换；无需设备定位。</p>
-        </div>
-        <div class="weather-controls">
-          <label class="weather-control" for="weatherCity">目的地<select id="weatherCity"><option value="paris">巴黎</option></select></label>
-          <button type="button" class="btn btn-soft" id="weatherRefresh" disabled>加载天气…</button>
-        </div>
-      </div>
-      <div class="weather-panel">
-        <div class="weather-current" id="weatherCurrent" aria-live="polite" aria-busy="true"><p>天气正在准备中；行程可照常查看。</p></div>
-        <p class="weather-status" id="weatherStatus" role="status">需要联网获取天气。未加载时可刷新网页重试，不影响行程内容。</p>
-      </div>
-      <p class="weather-source">天气数据来自 <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>（CC BY 4.0），天气描述和图标已转为中文展示。当前天气为模型数据，非现场实测；所有时间均按目的地当地时间显示。预报最长16天，远期仅供趋势参考；“—”表示数据暂缺，不代表0。天气服务会收到城市坐标和网络IP，不接收你的订单或精确定位。</p>
-      <noscript><p class="note-banner">请启用 JavaScript 获取天气；天气需要联网，不会自动修改你的行程。</p></noscript>
-    </section>
-
-    <section id="decisions" aria-labelledby="decisions-title">
-      <div class="section-head">
-        <div>
-          <p class="section-kicker">Trip choices</p>
-          <h2 id="decisions-title">已确认的关键取舍</h2>
-          <p class="section-desc">这些项目不再占用预约和排队时间，网站中的每日安排已按这些偏好重新编排。</p>
-        </div>
-      </div>
-      <div class="decision-grid" id="decisionGrid"></div>
-    </section>
-
     <section id="itinerary" aria-labelledby="itinerary-title">
       <div class="section-head">
         <div>
@@ -993,6 +933,7 @@
         </div>
       </div>
       <div class="days-list" id="daysList"></div>
+      <p class="weather-source">天气按当地日期自动更新，降雨为概率；预报最长16天，远期仅供参考，“—”表示暂缺。数据：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>（CC BY 4.0，中文概况）。</p>
     </section>
 
     <section id="reservations" aria-labelledby="reservations-title">
@@ -1118,15 +1059,6 @@
       { city: '布达佩斯', icon: '⌂', mode: '飞机' },
       { city: '迪拜', icon: '▲', mode: '飞机' },
       { city: '香港', icon: '▥', mode: '返程' }
-    ];
-
-    const decisions = [
-      { icon: '🗼', title: '埃菲尔铁塔', text: '只看外观、夜景与闪灯，不安排登顶。' },
-      { icon: '🛍️', title: '巴黎购物优先', text: '9月28日下午留给香榭丽舍购物；晚上视体力安排塞纳河游船。' },
-      { icon: '🗼', title: '比萨斜塔', text: '只拍外观游客照，不登塔，不购买登塔票。' },
-      { icon: '🏛️', title: '斗兽场', text: '以外观拍照和古城轴线步行为主，不默认进入遗址区。' },
-      { icon: '⛪', title: '罗马教堂', text: '加入圣依纳爵堂，重点观看天顶壁画和视觉错觉穹顶。' },
-      { icon: '🌉', title: '布达佩斯', text: '国会大厦只看外观；保留多瑙河夜游作为重点体验。' }
     ];
 
     const hotels = [
@@ -2026,15 +1958,6 @@
         </div>`).join('');
     }
 
-    function renderDecisions() {
-      $('#decisionGrid').innerHTML = decisions.map(item => `
-        <article class="decision-card">
-          <div class="decision-icon" aria-hidden="true">${item.icon}</div>
-          <h3>${escapeHTML(item.title)}</h3>
-          <p>${escapeHTML(item.text)}</p>
-        </article>`).join('');
-    }
-
     function getStay(day) {
       const hotel = hotels.find(item => item.id === day.hotel);
       return hotel ? (hotel.shortName || hotel.name) : day.stay;
@@ -2061,13 +1984,13 @@
             <div class="day-summary">
               <h3>${escapeHTML(day.city)}</h3>
               <p>${escapeHTML(day.summary)}</p>
+              <div class="day-weather" data-weather-date="2026-${day.id.slice(0, 2)}-${day.id.slice(2)}" aria-label="当日目的地天气预报"><span class="weather-inline is-pending">天气加载中…</span></div>
             </div>
             <div class="day-tags">${day.tags.map(tag => `<span class="tag">${escapeHTML(tag)}</span>`).join('')}</div>
             <span class="chevron" aria-hidden="true">⌄</span>
           </summary>
           <div class="day-body">
             <div class="day-stay"><span>当晚住宿：<strong>${escapeHTML(getStay(day))}</strong></span>${day.hotel ? '<a href="#hotels">查看酒店信息 ↗</a>' : ''}</div>
-            <div class="day-weather" data-weather-date="2026-${day.id.slice(0, 2)}-${day.id.slice(2)}" aria-label="当日目的地天气预报"><p class="weather-caption">天气尚未加载，不影响查看行程。</p></div>
             <div class="timeline">
               ${day.items.map(([time, title, note]) => `
                 <div class="time-row">
@@ -2206,7 +2129,6 @@
       renderRoute();
       renderOverview();
       renderHotels();
-      renderDecisions();
       renderItinerary();
       renderReservations();
       renderTransport();
