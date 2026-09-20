@@ -6,6 +6,9 @@
   <meta name="theme-color" content="#203451" />
   <meta name="description" content="2026年9月26日至10月8日，巴黎、米兰、佛罗伦萨、罗马、梵蒂冈与布达佩斯行程执行网站。" />
   <title>欧洲三国行程｜2026.09.26—10.08</title>
+  <link rel="stylesheet" href="weather.css?v=1" />
+  <script src="weather.js?v=1" defer></script>
+  <script src="weather-ui.js?v=1" defer></script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23203451'/%3E%3Cpath d='M12 42c12-17 29-23 40-22-7 7-11 16-12 26-10-5-19-5-28-4Z' fill='%23e4b66b'/%3E%3Ccircle cx='44' cy='18' r='5' fill='%23fff7e8'/%3E%3C/svg%3E" />
   <style>
     :root {
@@ -896,6 +899,7 @@
     <div class="nav-inner">
       <a class="nav-brand" href="#top"><span class="nav-mark">✦</span><span>欧洲行程</span></a>
       <a class="nav-link" href="#overview">概览</a>
+      <a class="nav-link" href="#weather">天气</a>
       <a class="nav-link" href="#decisions">关键取舍</a>
       <a class="nav-link" href="#itinerary">每日行程</a>
       <a class="nav-link" href="#reservations">预约</a>
@@ -933,6 +937,26 @@
           <tbody id="overviewRows"></tbody>
         </table>
       </div>
+    </section>
+
+    <section id="weather" aria-labelledby="weather-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Destination weather</p>
+          <h2 id="weather-title">把天气也放进行程里</h2>
+          <p class="section-desc">这里看目的地当前天气，每日行程内看旅行当天的预报。按行程推荐城市，也可自由切换；无需设备定位。</p>
+        </div>
+        <div class="weather-controls">
+          <label class="weather-control" for="weatherCity">目的地<select id="weatherCity"><option value="paris">巴黎</option></select></label>
+          <button type="button" class="btn btn-soft" id="weatherRefresh" disabled>加载天气…</button>
+        </div>
+      </div>
+      <div class="weather-panel">
+        <div class="weather-current" id="weatherCurrent" aria-live="polite" aria-busy="true"><p>天气正在准备中；行程可照常查看。</p></div>
+        <p class="weather-status" id="weatherStatus" role="status">需要联网获取天气。未加载时可刷新网页重试，不影响行程内容。</p>
+      </div>
+      <p class="weather-source">天气数据来自 <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>（CC BY 4.0），天气描述和图标已转为中文展示。当前天气为模型数据，非现场实测；所有时间均按目的地当地时间显示。预报最长16天，远期仅供趋势参考；“—”表示数据暂缺，不代表0。天气服务会收到城市坐标和网络IP，不接收你的订单或精确定位。</p>
+      <noscript><p class="note-banner">请启用 JavaScript 获取天气；天气需要联网，不会自动修改你的行程。</p></noscript>
     </section>
 
     <section id="decisions" aria-labelledby="decisions-title">
@@ -2043,6 +2067,7 @@
           </summary>
           <div class="day-body">
             <div class="day-stay"><span>当晚住宿：<strong>${escapeHTML(getStay(day))}</strong></span>${day.hotel ? '<a href="#hotels">查看酒店信息 ↗</a>' : ''}</div>
+            <div class="day-weather" data-weather-date="2026-${day.id.slice(0, 2)}-${day.id.slice(2)}" aria-label="当日目的地天气预报"><p class="weather-caption">天气尚未加载，不影响查看行程。</p></div>
             <div class="timeline">
               ${day.items.map(([time, title, note]) => `
                 <div class="time-row">

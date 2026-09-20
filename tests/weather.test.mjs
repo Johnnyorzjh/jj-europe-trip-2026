@@ -43,6 +43,10 @@ test('suggested destination uses the trip calendar without GPS', () => {
   assert.equal(recommended(Date.parse('2026-10-06T12:00:00Z')),'budapest');
   assert.equal(recommended(Date.parse('2026-10-09T12:00:00Z')),'hongkong');
 });
+test('overnight return flight shows Dubai only on the local arrival date', () => {
+  assert.deepEqual(Array.from(feature('dayCities')('2026-10-07')), ['budapest']);
+  assert.deepEqual(Array.from(feature('dayCities')('2026-10-08')), ['dubai', 'hongkong']);
+});
 test('unknown codes stay unknown instead of being shown as sunny', () => {
   const describe=feature('describeWeather');
   assert.equal(describe(61).label,'小雨');
