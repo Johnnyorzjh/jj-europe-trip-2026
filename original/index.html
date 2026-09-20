@@ -581,6 +581,9 @@
     tbody tr:last-child td { border-bottom: 0; }
     tbody tr:hover td { background: rgba(32,52,81,.025); }
     td { font-size: 14px; }
+    .overview-table { margin-top: 24px; }
+    .day-stay { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin: 16px 0 0; padding: 12px 16px; border-radius: 12px; background: var(--surface-strong); font-size: 14px; overflow-wrap: anywhere; }
+    .day-stay strong { color: var(--navy); }
     .status {
       display: inline-flex;
       align-items: center;
@@ -847,6 +850,9 @@
       .chevron { display: none; }
       .route-scroll { overflow: visible; }
       .route-track { min-width: 0; }
+      .table-wrap { overflow: visible; }
+      table { min-width: 0; }
+      th, td { padding: 8px; overflow-wrap: anywhere; }
       a { text-decoration: none; }
       .resource-link span:last-child { display: none; }
       footer { color: var(--ink); background: #fff; border-top: 1px solid var(--line); }
@@ -860,9 +866,9 @@
   <header class="hero" id="top">
     <div class="hero-inner">
       <div>
-        <div class="eyebrow"><span class="eyebrow-dot"></span>可分发执行版 · 不含住宿推荐</div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span>行程更新 · 2026.09.20</div>
         <h1>欧洲三国<br />行程规划</h1>
-        <p class="hero-lead">巴黎、米兰、佛罗伦萨、罗马、梵蒂冈与布达佩斯。按日期展开，重点预约、城际交通和现场取舍集中在同一个页面。</p>
+        <p class="hero-lead">巴黎、米兰、佛罗伦萨、罗马、梵蒂冈与布达佩斯。每日安排、已订酒店、跨城交通与待确认事项集中在同一个页面。</p>
         <div class="hero-meta">
           <span class="meta-chip">📅 2026.09.26—10.08</span>
           <span class="meta-chip">👥 2人</span>
@@ -893,6 +899,7 @@
       <a class="nav-link" href="#decisions">关键取舍</a>
       <a class="nav-link" href="#itinerary">每日行程</a>
       <a class="nav-link" href="#reservations">预约</a>
+      <a class="nav-link" href="#hotels">酒店</a>
       <a class="nav-link" href="#transport">交通</a>
       <a class="nav-link" href="#contingency">应急</a>
       <a class="nav-link" href="#checklist">清单</a>
@@ -913,12 +920,18 @@
         <article class="stat-card"><span class="stat-value">13</span><span class="stat-label">个日历日（含往返转机）</span></article>
         <article class="stat-card"><span class="stat-value">11</span><span class="stat-label">个欧洲游玩日</span></article>
         <article class="stat-card"><span class="stat-value">7</span><span class="stat-label">个核心目的地</span></article>
-        <article class="stat-card"><span class="stat-value">3</span><span class="stat-label">项必须提前预约</span></article>
+        <article class="stat-card"><span class="stat-value">5</span><span class="stat-label">家已预订酒店 · 共10晚</span></article>
       </div>
       <div class="route-board">
         <div class="route-scroll" aria-label="行程路线轴">
           <div class="route-track" id="routeTrack"></div>
         </div>
+      </div>
+      <div class="table-wrap overview-table" tabindex="0" role="region" aria-label="行程与住宿总览，可横向滚动">
+        <table>
+          <thead><tr><th scope="col">日期</th><th scope="col">城市 / 行程</th><th scope="col">住宿</th></tr></thead>
+          <tbody id="overviewRows"></tbody>
+        </table>
       </div>
     </section>
 
@@ -963,16 +976,32 @@
         <div>
           <p class="section-kicker">Reservations</p>
           <h2 id="reservations-title">门票与活动预约</h2>
-          <p class="section-desc">“必须预约”优先锁定；“可选”项目不应挤压购物、休息或核心景点时间。</p>
+          <p class="section-desc">卢浮宫、乌菲兹与梵蒂冈博物馆的最终入场时间待确认；表中时段为行程计划，以最终门票为准。</p>
         </div>
       </div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>项目</th><th>日期</th><th>建议时段</th><th>状态</th><th>执行提示</th></tr></thead>
+          <thead><tr><th>项目</th><th>日期</th><th>计划时段</th><th>状态</th><th>执行提示</th></tr></thead>
           <tbody id="reservationRows"></tbody>
         </table>
       </div>
       <div class="note-banner">无需购买：埃菲尔铁塔登顶票、佛罗伦萨穹顶 / 乔托钟楼登顶通票、比萨斜塔登塔票、斗兽场遗址联票、匈牙利国会大厦内部参观票、布达佩斯温泉门票。</div>
+    </section>
+
+    <section id="hotels" aria-labelledby="hotels-title">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Hotels</p>
+          <h2 id="hotels-title">已预订酒店</h2>
+          <p class="section-desc">五座城市、五家酒店，共10晚。提前抵达时先寄存行李，能否提前入住以酒店安排为准。</p>
+        </div>
+      </div>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="酒店信息，可横向滚动">
+        <table>
+          <thead><tr><th scope="col">城市</th><th scope="col">入住</th><th scope="col">退房</th><th scope="col">酒店</th><th scope="col">地址</th><th scope="col">状态</th></tr></thead>
+          <tbody id="hotelRows"></tbody>
+        </table>
+      </div>
     </section>
 
     <section id="transport" aria-labelledby="transport-title">
@@ -980,12 +1009,12 @@
         <div>
           <p class="section-kicker">Intercity</p>
           <h2 id="transport-title">城际交通清单</h2>
-          <p class="section-desc">待确认的机场与待购买的高铁票已高亮，便于下一步直接完成下单。</p>
+          <p class="section-desc">已按最新预订更新。9月30日米兰—佛罗伦萨的车次与准确时间待补充；比萨往返区域列车按当日行程购票。所有时间均为当地时间。</p>
         </div>
       </div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>日期</th><th>区间</th><th>方式</th><th>目标时间</th><th>状态</th></tr></thead>
+          <thead><tr><th>日期</th><th>航班 / 车次</th><th>出发</th><th>到达</th><th>状态</th></tr></thead>
           <tbody id="transportRows"></tbody>
         </table>
       </div>
@@ -1040,7 +1069,7 @@
   <footer>
     <p><strong>欧洲三国行程 · 2026</strong></p>
     <p>巴黎 → 米兰 → 佛罗伦萨 / 比萨 → 罗马 / 梵蒂冈 → 布达佩斯</p>
-    <p>页面不包含住宿推荐；时间均为当地时间。</p>
+    <p>更新时间：2026年9月20日。所有时间均为当地时间；票号、二维码、旅客姓名等隐私信息不写入网站。</p>
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -1069,286 +1098,861 @@
 
     const decisions = [
       { icon: '🗼', title: '埃菲尔铁塔', text: '只看外观、夜景与闪灯，不安排登顶。' },
-      { icon: '🛍️', title: '巴黎购物优先', text: '9月28日下午留给香榭丽舍与 lululemon；塞纳河游船非必选。' },
+      { icon: '🛍️', title: '巴黎购物优先', text: '9月28日下午留给香榭丽舍购物；晚上视体力安排塞纳河游船。' },
       { icon: '🗼', title: '比萨斜塔', text: '只拍外观游客照，不登塔，不购买登塔票。' },
       { icon: '🏛️', title: '斗兽场', text: '以外观拍照和古城轴线步行为主，不默认进入遗址区。' },
       { icon: '⛪', title: '罗马教堂', text: '加入圣依纳爵堂，重点观看天顶壁画和视觉错觉穹顶。' },
       { icon: '🌉', title: '布达佩斯', text: '国会大厦只看外观；保留多瑙河夜游作为重点体验。' }
     ];
 
+    const hotels = [
+      {
+        "id": "paris",
+        "city": "巴黎",
+        "checkIn": "09-27",
+        "checkOut": "09-29",
+        "name": "巴黎蒙索亭酒店（Pavillon Monceau by HappyCulture）",
+        "shortName": "巴黎蒙索亭酒店",
+        "address": "43 Rue Jouffroy d'Abbans, Paris",
+        "status": "已预订"
+      },
+      {
+        "id": "milan",
+        "city": "米兰",
+        "checkIn": "09-29",
+        "checkOut": "09-30",
+        "name": "Acca Palace",
+        "address": "Via Giovanni Nicotera 9, Milan",
+        "status": "已预订"
+      },
+      {
+        "id": "florence",
+        "city": "佛罗伦萨",
+        "checkIn": "09-30",
+        "checkOut": "10-02",
+        "name": "B&B HOTEL Firenze Novoli",
+        "address": "Viale Alessandro Guidoni 101, Florence",
+        "status": "已预订"
+      },
+      {
+        "id": "rome",
+        "city": "罗马",
+        "checkIn": "10-02",
+        "checkOut": "10-06",
+        "name": "Mercure Roma Corso Trieste",
+        "address": "Via Gradisca 31, Rome",
+        "status": "已预订"
+      },
+      {
+        "id": "budapest",
+        "city": "布达佩斯",
+        "checkIn": "10-06",
+        "checkOut": "10-07",
+        "name": "Four Points by Sheraton Budapest Danube",
+        "address": "Garam utca 4/a, Budapest",
+        "status": "已预订"
+      }
+    ];
+
     const itinerary = [
       {
-        id: '0926', month: '9月', day: '26', week: '周六', city: '香港 → 曼谷 → 巴黎',
-        summary: '夜航与联程转机', filters: ['transit'], color: palette.transit,
-        tags: ['已购机票', '转场'],
-        items: [
-          ['19:05', '香港起飞', '开启联程行程'],
-          ['20:45', '抵达曼谷', '完成联程转机'],
-          ['00:05', '曼谷起飞', '前往巴黎']
+        "id": "0926",
+        "month": "9月",
+        "day": "26",
+        "week": "周六",
+        "city": "香港 → 曼谷",
+        "summary": "香港出发，经曼谷转机",
+        "filters": [
+          "transit"
         ],
-        note: '随身携带一套衣物、基础洗漱用品、充电设备和常用药；护照、签证、保险与订单保留离线版本。'
+        "color": "#7b6b58",
+        "tags": [
+          "TG639",
+          "已预订"
+        ],
+        "stay": "飞机上",
+        "items": [
+          [
+            "下午",
+            "前往香港国际机场 T1",
+            ""
+          ],
+          [
+            "19:05",
+            "TG639 香港起飞",
+            "香港国际机场 T1 → 曼谷素万那普机场"
+          ],
+          [
+            "20:45",
+            "抵达曼谷素万那普机场",
+            "转乘次日 00:05 的 TG930"
+          ]
+        ],
+        "note": "所有时间均为当地时间。随身保留必要证件与订单的离线版本；票号、二维码和旅客姓名不写入网站。"
       },
       {
-        id: '0927', month: '9月', day: '27', week: '周日', city: '巴黎',
-        summary: 'CDG T1落地 · 蒙马特 · 埃菲尔铁塔夜景', filters: ['paris'], color: palette.paris,
-        tags: ['落地日', '轻量步行'],
-        items: [
-          ['07:10', '抵达巴黎戴高乐机场 T1', '入境、取行李'],
-          ['09:00左右', '前往巴黎市区', 'T1乘 CDGVAL，再换 RER B'],
-          ['10:15—10:45', '寄存行李', '以实际住处位置为准'],
-          ['11:00—12:00', '早午餐', '住处或蒙马特附近'],
-          ['12:00—15:00', '蒙马特高地与圣心大教堂', '周边街巷轻量步行'],
-          ['15:00—17:00', '入住与休息', '保留时差恢复时间'],
-          ['17:30—18:15', '前往特罗卡德罗广场', '不安排香榭丽舍购物'],
-          ['18:15—20:30', '特罗卡德罗、埃菲尔铁塔外观与塞纳河畔', '以拍照和夜景为主'],
-          ['20:30后', '晚餐与闪灯', '视体力等待铁塔闪灯；当晚不安排游船']
+        "id": "0927",
+        "month": "9月",
+        "day": "27",
+        "week": "周日",
+        "city": "曼谷 → 巴黎",
+        "summary": "抵达巴黎，蒙马特与埃菲尔铁塔",
+        "filters": [
+          "paris",
+          "transit"
+        ],
+        "color": "#3f6788",
+        "tags": [
+          "TG930",
+          "落地休整"
+        ],
+        "hotel": "paris",
+        "items": [
+          [
+            "00:05",
+            "TG930 曼谷起飞",
+            "曼谷素万那普机场 → 巴黎戴高乐机场 T1"
+          ],
+          [
+            "07:10",
+            "抵达巴黎戴高乐机场 T1",
+            "入境、取行李"
+          ],
+          [
+            "上午",
+            "前往巴黎蒙索亭酒店寄存行李",
+            "上午休整，保留时差恢复时间"
+          ],
+          [
+            "下午",
+            "蒙马特、圣心大教堂、画家广场",
+            "轻量步行"
+          ],
+          [
+            "傍晚至晚上",
+            "特罗卡德罗广场、埃菲尔铁塔夜景",
+            "以外观与夜景为主"
+          ]
         ]
       },
       {
-        id: '0928', month: '9月', day: '28', week: '周一', city: '巴黎',
-        summary: '卢浮宫 · 香榭丽舍购物 · 凯旋门外观', filters: ['paris'], color: palette.paris,
-        tags: ['卢浮宫必约', '购物日', '游船可选'],
-        items: [
-          ['08:15', '早餐并前往卢浮宫', '提前抵达安检区'],
-          ['09:00—12:15', '卢浮宫', '建议预约 09:00 或 09:30'],
-          ['12:30—13:45', '午餐', '卢浮宫、皇家宫殿或杜乐丽花园周边'],
-          ['14:00—14:30', '杜乐丽花园 → 协和广场', '只作顺路经过'],
-          ['14:30—18:15', '香榭丽舍大街购物', '可随时搭地铁缩短步行'],
-          ['15:00—16:00', 'lululemon Champs-Élysées', '38 Avenue des Champs-Élysées；以实际逛店时长为准'],
-          ['18:15—19:00', '凯旋门外观与拍照', '不登顶'],
-          ['19:15—20:15', '晚餐', '香街或返回住处附近'],
-          ['20:30后', '塞纳河游船可选', '仅在天气、体力和兴致都合适时参加']
+        "id": "0928",
+        "month": "9月",
+        "day": "28",
+        "week": "周一",
+        "city": "巴黎",
+        "summary": "巴黎市区：卢浮宫、香榭丽舍、凯旋门",
+        "filters": [
+          "paris"
         ],
-        note: '香街不必完整步行；购物完成后可直接乘地铁。塞纳河游船不应压缩购物或休息时间。'
-      },
-      {
-        id: '0929', month: '9月', day: '29', week: '周二', city: '巴黎 → 米兰',
-        summary: '歌剧院与百货购物 · 晚飞米兰', filters: ['paris','transit'], color: palette.paris,
-        tags: ['购物上午', '机场待确认'],
-        items: [
-          ['08:30', '早餐、退房并寄存行李', ''],
-          ['09:30—10:00', '巴黎歌剧院外观与广场', '不进入大型博物馆'],
-          ['10:00—12:15', '老佛爷 / 春天百货购物', '按品牌与退税需求自由分配'],
-          ['11:45—12:15', '老佛爷屋顶露台可选', '天气不好时取消'],
-          ['12:15—13:15', '午餐', '歌剧院或百货周边'],
-          ['13:30后', '取行李并前往机场', 'CDG约15:30离开；ORY约15:45—16:00；BVA需14:00—14:30离开'],
-          ['19:30', '飞往米兰', '巴黎起飞与米兰到达机场待确认'],
-          ['抵达后', '前往住处办理入住', '不安排正式景点']
+        "color": "#3f6788",
+        "tags": [
+          "入场时间待确认",
+          "游船可选"
+        ],
+        "hotel": "paris",
+        "items": [
+          [
+            "上午",
+            "卢浮宫",
+            "最终入场时间待确认"
+          ],
+          [
+            "中午",
+            "杜乐丽花园、协和广场",
+            ""
+          ],
+          [
+            "下午",
+            "香榭丽舍大街购物、凯旋门",
+            ""
+          ],
+          [
+            "晚上",
+            "塞纳河游船可选",
+            "视体力安排"
+          ]
         ]
       },
       {
-        id: '0930', month: '9月', day: '30', week: '周三', city: '米兰 → 佛罗伦萨',
-        summary: '米兰大教堂 · 高铁 · 佛罗伦萨日落', filters: ['italy','transit'], color: palette.italy,
-        tags: ['高铁待买', '米兰半日'],
-        items: [
-          ['08:00', '退房并寄存行李', '中央车站附近'],
-          ['08:30—10:30', '米兰大教堂与埃马努埃莱二世长廊', '以外观、内部与拍照为主'],
-          ['10:30—11:15', '取行李，前往 Milano Centrale', ''],
-          ['11:30—12:30之间', '直达高铁前往佛罗伦萨', 'Milano Centrale → Firenze S.M.N.'],
-          ['13:30—14:30', '寄存行李 / 入住并午餐', ''],
-          ['15:30—17:00', '领主广场 → 老桥 → 阿诺河畔', '老城步行'],
-          ['17:00—18:00', '前往米开朗琪罗广场', '步行或公交'],
-          ['18:00—19:15', '米开朗琪罗广场日落', ''],
-          ['19:30后', '返回老城晚餐', '']
+        "id": "0929",
+        "month": "9月",
+        "day": "29",
+        "week": "周二",
+        "city": "巴黎 → 米兰",
+        "summary": "巴黎购物，傍晚飞往米兰",
+        "filters": [
+          "paris",
+          "italy",
+          "transit"
         ],
-        note: '米兰大教堂默认外观、内部和长廊；若临时决定登屋顶，预约09:00并确保10:30前结束。'
-      },
-      {
-        id: '1001', month: '10月', day: '1', week: '周四', city: '比萨 / 佛罗伦萨',
-        summary: '比萨半日外观拍照 · 乌菲兹美术馆', filters: ['italy'], color: palette.italy,
-        tags: ['乌菲兹必约', '斜塔不登'],
-        items: [
-          ['06:45', '早餐或便携早餐', ''],
-          ['07:15—07:45之间', '佛罗伦萨出发前往比萨', 'Firenze S.M.N. 区域列车'],
-          ['08:20—08:50', '抵达比萨', '优先查看 Pisa S. Rossore 班次'],
-          ['09:00—10:30', '奇迹广场、比萨斜塔、主教座堂与洗礼堂外观', '以游客照和外观打卡为主'],
-          ['10:30—11:15', '返回车站', ''],
-          ['11:00—12:30之间', '返回佛罗伦萨', '目标12:30前抵达'],
-          ['12:30—13:30', '午餐', '乌菲兹附近'],
-          ['14:00—16:45', '乌菲兹美术馆', '必须预约14:00'],
-          ['17:00后', '自由逛街、冰淇淋与晚餐', '不再安排重景点']
+        "color": "#3f6788",
+        "tags": [
+          "U24943",
+          "已预订"
         ],
-        note: '本次不购买斜塔登塔票，不安排存包和登塔时间；可根据拍照排队情况提前返程。'
-      },
-      {
-        id: '1002', month: '10月', day: '2', week: '周五', city: '佛罗伦萨 → 罗马',
-        summary: '大教堂外观 · 高铁 · 许愿池 · 圣依纳爵堂', filters: ['italy','rome','transit'], color: palette.rome,
-        tags: ['高铁待买', '教堂外观'],
-        items: [
-          ['07:15—08:00', '圣母百花大教堂、乔托钟楼与洗礼堂外观', '不登顶，只拍照'],
-          ['08:00—09:00', '早餐', ''],
-          ['09:00—09:45', '退房并前往 Firenze S.M.N.', ''],
-          ['10:00—10:45之间', '高铁前往罗马', 'Firenze S.M.N. → Roma Termini'],
-          ['11:30—12:30', '寄存行李 / 入住', ''],
-          ['12:30—14:00', '午餐与短休息', ''],
-          ['14:30—15:10', '西班牙广场与西班牙台阶', ''],
-          ['15:20—16:05', '特雷维喷泉 / 许愿池', '重点拍照与投币'],
-          ['16:15—17:00', '圣依纳爵堂', '观看天顶壁画与视觉错觉穹顶'],
-          ['17:10—18:00', '万神殿', '是否进入内部按现场体力决定'],
-          ['18:00—18:45', '纳沃纳广场', ''],
-          ['19:00后', '晚餐', '']
-        ],
-        note: '圣依纳爵堂位于罗马市中心而非梵蒂冈，与许愿池、万神殿距离较近；遇弥撒或礼仪时以现场安排为准。'
-      },
-      {
-        id: '1003', month: '10月', day: '3', week: '周六', city: '罗马',
-        summary: '斗兽场外观 · 古城轴线 · Monti', filters: ['rome'], color: palette.rome,
-        tags: ['无预约', '外观拍照'],
-        items: [
-          ['08:30—09:30', '斗兽场外观拍照', '可从 Via Nicola Salvi 或 Colle Oppio 一带取景'],
-          ['09:30—10:00', '君士坦丁凯旋门', '外观'],
-          ['10:00—11:15', '帝国广场大道与古罗马广场外观', '不进入遗址区'],
-          ['11:15—12:15', '卡比托利欧山与广场', '可看古罗马广场高位视角'],
-          ['12:30—14:00', '午餐', 'Monti 或威尼斯广场周边'],
-          ['14:15—15:15', '威尼斯广场与维托里亚诺外观', ''],
-          ['15:30—17:30', 'Monti街区散步、咖啡与购物', '放松安排'],
-          ['17:30后', '自由晚餐', '可选回许愿池补拍夜景']
-        ],
-        note: '默认不购买斗兽场、古罗马广场和帕拉蒂尼山联票；若临近出发改变主意，再单独查看官方余票。'
-      },
-      {
-        id: '1004', month: '10月', day: '4', week: '周日', city: '罗马',
-        summary: 'Citywalk · 真理之口 · 阿文蒂诺山', filters: ['rome'], color: palette.rome,
-        tags: ['无硬预约', '步行日'],
-        items: [
-          ['09:00—09:40', '圣天使桥与圣天使堡外观', ''],
-          ['09:40—10:30', 'Via Giulia → Piazza Farnese → 鲜花广场', ''],
-          ['10:40—11:30', '犹太区、Portico d’Ottavia 与马切罗剧场外观', ''],
-          ['11:45—12:40', '真理之口与科斯梅丁圣母教堂外观', '预留排队与拍照时间'],
-          ['12:45—14:00', '午餐', '真理之口、犹太区或阿文蒂诺山附近'],
-          ['14:15—15:45', '阿文蒂诺山、橘园与马耳他骑士团钥匙孔', ''],
-          ['16:00—16:30', '马克西穆斯竞技场外观', ''],
-          ['17:00后', '特拉斯提弗列、圣母广场与晚餐', '']
-        ],
-        note: '真理之口主要是排队拍游客照；开放时段可能因宗教活动调整，建议临行前复核并设置最长排队时间。'
-      },
-      {
-        id: '1005', month: '10月', day: '5', week: '周一', city: '梵蒂冈 / 罗马',
-        summary: '圣彼得大教堂 · 梵蒂冈博物馆 · 西斯廷礼拜堂', filters: ['rome'], color: palette.rome,
-        tags: ['梵蒂冈必约', '早出发'],
-        items: [
-          ['06:45', '从住处出发', ''],
-          ['07:15', '抵达圣彼得广场安检区域', ''],
-          ['07:30—09:00', '圣彼得大教堂与圣彼得广场', '不登穹顶'],
-          ['09:00—09:45', '早餐 / 咖啡', '步行前往博物馆入口'],
-          ['10:00—13:30', '梵蒂冈博物馆、拉斐尔房间与西斯廷礼拜堂', '建议预约10:00—10:30'],
-          ['13:45—15:00', 'Prati区午餐', ''],
-          ['15:00—17:00', '休息或Prati轻量购物', ''],
-          ['晚间', '自由晚餐', '不安排硬景点']
+        "hotel": "milan",
+        "items": [
+          [
+            "上午",
+            "巴黎歌剧院外观、老佛爷百货、春天百货",
+            ""
+          ],
+          [
+            "下午",
+            "返回酒店取行李，前往巴黎奥利机场 T1",
+            "预留机场交通、值机与安检时间"
+          ],
+          [
+            "18:55",
+            "U24943 巴黎起飞",
+            "巴黎奥利机场 T1 → 米兰利纳特机场"
+          ],
+          [
+            "20:20",
+            "抵达米兰利纳特机场",
+            "前往 Acca Palace 入住"
+          ]
         ]
       },
       {
-        id: '1006', month: '10月', day: '6', week: '周二', city: '罗马 → 布达佩斯',
-        summary: '飞往布达佩斯 · 多瑙河夜游', filters: ['rome','budapest','transit'], color: palette.budapest,
-        tags: ['机场待确认', '游船建议'],
-        items: [
-          ['08:00—09:00', '早餐、退房并寄存行李', ''],
-          ['09:00—10:30', '住处周边散步与咖啡', '不安排必须完成的景点'],
-          ['10:30—11:00', '取行李', ''],
-          ['11:00—11:30', '前往罗马出发机场', '机场待确认'],
-          ['14:30—16:20', '飞往布达佩斯', '抵达 BUD'],
-          ['16:20—17:15', '下机与取行李', ''],
-          ['17:15—18:15', '前往市中心', '100E机场快线至 Deák Ferenc tér 一带'],
-          ['18:15—19:00', '办理入住', ''],
-          ['19:00—20:00', '晚餐', ''],
-          ['20:30—21:30', '多瑙河游船', '建议预约20:30或21:00；可改退优先']
+        "id": "0930",
+        "month": "9月",
+        "day": "30",
+        "week": "周三",
+        "city": "米兰 → 佛罗伦萨",
+        "summary": "米兰市区，随后前往佛罗伦萨",
+        "filters": [
+          "italy",
+          "transit"
+        ],
+        "color": "#496d61",
+        "tags": [
+          "车次与时间待补充",
+          "米兰半日"
+        ],
+        "hotel": "florence",
+        "items": [
+          [
+            "上午",
+            "米兰大教堂、埃马努埃莱二世拱廊",
+            ""
+          ],
+          [
+            "中午前后",
+            "返回 Milano Centrale，搭乘高速列车",
+            "前往 Firenze Santa Maria Novella；车次和准确时间待补充"
+          ],
+          [
+            "抵达后",
+            "前往 B&B HOTEL Firenze Novoli 入住",
+            ""
+          ],
+          [
+            "傍晚",
+            "佛罗伦萨老城、阿诺河",
+            "时间充足可前往米开朗琪罗广场"
+          ]
         ]
       },
       {
-        id: '1007', month: '10月', day: '7', week: '周三', city: '布达佩斯 → 迪拜',
-        summary: '布达与佩斯核心景点 · FZ1406返程', filters: ['budapest','transit'], color: palette.budapest,
-        tags: ['FZ1406', '22:40起飞'],
-        items: [
-          ['07:30', '退房并寄存行李', ''],
-          ['08:00—09:30', '渔人堡与马加什教堂外观', '清晨拍照'],
-          ['09:30—11:00', '布达城堡区与城堡露台', ''],
-          ['11:00—11:30', '步行过链桥至佩斯侧', ''],
-          ['11:45—13:00', '午餐', ''],
-          ['13:00—14:00', '圣伊斯特万大教堂', '内部参观可选'],
-          ['14:15—15:45', '国会大厦外观与多瑙河鞋履纪念碑', '不进入国会大厦'],
-          ['16:00—17:15', '咖啡、早晚餐或最后购物', ''],
-          ['17:30—18:15', '取行李', ''],
-          ['18:45', '前往布达佩斯机场', '100E或打车'],
-          ['19:30—19:40', '抵达 BUD', '办理值机与安检'],
-          ['22:40', 'FZ1406 起飞', 'BUD → DXB T3']
+        "id": "1001",
+        "month": "10月",
+        "day": "1",
+        "week": "周四",
+        "city": "比萨 / 佛罗伦萨",
+        "summary": "比萨半日游、乌菲兹美术馆",
+        "filters": [
+          "italy"
+        ],
+        "color": "#496d61",
+        "tags": [
+          "入场时间待确认",
+          "斜塔外观"
+        ],
+        "hotel": "florence",
+        "items": [
+          [
+            "上午",
+            "佛罗伦萨往返比萨",
+            "Firenze SMN ↔ Pisa Centrale；区域列车按当日行程购票"
+          ],
+          [
+            "上午",
+            "奇迹广场、比萨斜塔外观",
+            ""
+          ],
+          [
+            "中午",
+            "返回佛罗伦萨",
+            ""
+          ],
+          [
+            "下午",
+            "乌菲兹美术馆",
+            "最终入场时间待确认"
+          ],
+          [
+            "晚上",
+            "佛罗伦萨老城自由活动",
+            ""
+          ]
+        ],
+        "note": "以最终确认的乌菲兹入场时间倒推比萨返程；预留列车延误和步行时间。"
+      },
+      {
+        "id": "1002",
+        "month": "10月",
+        "day": "2",
+        "week": "周五",
+        "city": "佛罗伦萨 → 罗马",
+        "summary": "佛罗伦萨前往罗马，罗马市中心漫步",
+        "filters": [
+          "italy",
+          "rome",
+          "transit"
+        ],
+        "color": "#a75b48",
+        "tags": [
+          "Italo 8905",
+          "已预订"
+        ],
+        "hotel": "rome",
+        "items": [
+          [
+            "上午",
+            "佛罗伦萨主教座堂外观及周边散步",
+            "预留前往 Firenze SMN 的时间"
+          ],
+          [
+            "10:28",
+            "搭乘 Italo 8905 前往罗马",
+            "Firenze SMN → Roma"
+          ],
+          [
+            "12:10",
+            "抵达罗马",
+            "前往 Mercure Roma Corso Trieste 寄存行李或办理入住"
+          ],
+          [
+            "下午至晚上",
+            "西班牙广场、特莱维喷泉、圣依纳爵堂",
+            ""
+          ],
+          [
+            "下午至晚上",
+            "万神殿、纳沃纳广场",
+            ""
+          ]
+        ],
+        "note": "圣依纳爵堂若遇弥撒或礼仪，以现场安排为准。"
+      },
+      {
+        "id": "1003",
+        "month": "10月",
+        "day": "3",
+        "week": "周六",
+        "city": "罗马",
+        "summary": "古罗马区域与 Monti 街区",
+        "filters": [
+          "rome"
+        ],
+        "color": "#a75b48",
+        "tags": [
+          "外观游览",
+          "城市漫步"
+        ],
+        "hotel": "rome",
+        "items": [
+          [
+            "上午",
+            "斗兽场外观、古罗马广场外观",
+            ""
+          ],
+          [
+            "下午",
+            "卡比托利欧广场、威尼斯广场",
+            ""
+          ],
+          [
+            "傍晚至晚上",
+            "Monti 街区散步与用餐",
+            ""
+          ]
         ]
       },
       {
-        id: '1008', month: '10月', day: '8', week: '周四', city: '迪拜 → 香港',
-        summary: '迪拜转机 · 返回香港', filters: ['transit'], color: palette.transit,
-        tags: ['联程返程'],
-        items: [
-          ['07:05', '抵达迪拜国际机场 T3', ''],
-          ['后续', '按联程机票完成转机并返回香港', '']
+        "id": "1004",
+        "month": "10月",
+        "day": "4",
+        "week": "周日",
+        "city": "罗马",
+        "summary": "罗马南部、犹太区与特拉斯提弗列",
+        "filters": [
+          "rome"
+        ],
+        "color": "#a75b48",
+        "tags": [
+          "城市漫步",
+          "按体力调整"
+        ],
+        "hotel": "rome",
+        "items": [
+          [
+            "上午",
+            "马西莫竞技场、阿文提诺山、橘园、钥匙孔",
+            ""
+          ],
+          [
+            "中午",
+            "真理之口、犹太区",
+            ""
+          ],
+          [
+            "下午",
+            "鲜花广场、Via Giulia",
+            ""
+          ],
+          [
+            "傍晚至晚上",
+            "特拉斯提弗列街区",
+            "视体力增加圣天使堡外观"
+          ]
+        ]
+      },
+      {
+        "id": "1005",
+        "month": "10月",
+        "day": "5",
+        "week": "周一",
+        "city": "梵蒂冈 / 罗马",
+        "summary": "圣彼得大教堂与梵蒂冈博物馆",
+        "filters": [
+          "rome"
+        ],
+        "color": "#a75b48",
+        "tags": [
+          "入场时间待确认",
+          "早出发"
+        ],
+        "hotel": "rome",
+        "items": [
+          [
+            "清晨",
+            "前往圣彼得大教堂",
+            ""
+          ],
+          [
+            "上午",
+            "圣彼得大教堂及广场",
+            ""
+          ],
+          [
+            "10:00左右",
+            "进入梵蒂冈博物馆",
+            "计划时段；最终入场时间待确认"
+          ],
+          [
+            "下午",
+            "返回罗马市区休息",
+            "整理次日前往机场的行李"
+          ]
+        ]
+      },
+      {
+        "id": "1006",
+        "month": "10月",
+        "day": "6",
+        "week": "周二",
+        "city": "罗马 → 布达佩斯",
+        "summary": "罗马飞往布达佩斯，市区与夜游多瑙河",
+        "filters": [
+          "rome",
+          "budapest",
+          "transit"
+        ],
+        "color": "#6d5d84",
+        "tags": [
+          "FR6516",
+          "早班机"
+        ],
+        "hotel": "budapest",
+        "items": [
+          [
+            "清晨",
+            "退房并前往罗马钱皮诺机场",
+            "提前安排机场交通"
+          ],
+          [
+            "08:55",
+            "FR6516 罗马起飞",
+            "罗马钱皮诺机场 → 布达佩斯机场"
+          ],
+          [
+            "10:35",
+            "抵达布达佩斯机场",
+            "前往 Four Points by Sheraton Budapest Danube 寄存行李或入住"
+          ],
+          [
+            "下午",
+            "匈牙利国会大厦外观、多瑙河岸鞋履纪念碑",
+            ""
+          ],
+          [
+            "下午",
+            "圣伊什特万大教堂",
+            ""
+          ],
+          [
+            "晚上",
+            "多瑙河夜游",
+            ""
+          ]
+        ]
+      },
+      {
+        "id": "1007",
+        "month": "10月",
+        "day": "7",
+        "week": "周三",
+        "city": "布达佩斯 → 迪拜",
+        "summary": "布达区游览，夜间飞往迪拜",
+        "filters": [
+          "budapest",
+          "transit"
+        ],
+        "color": "#6d5d84",
+        "tags": [
+          "FZ1406",
+          "已预订"
+        ],
+        "stay": "飞机上",
+        "items": [
+          [
+            "上午",
+            "渔人堡、马加什教堂、布达城堡",
+            ""
+          ],
+          [
+            "下午",
+            "链子桥及佩斯城区自由活动",
+            ""
+          ],
+          [
+            "傍晚",
+            "返回酒店取行李，前往机场",
+            ""
+          ],
+          [
+            "22:40",
+            "FZ1406 布达佩斯起飞",
+            "次日 10-08 06:40 抵达迪拜机场 T3"
+          ]
+        ]
+      },
+      {
+        "id": "1008",
+        "month": "10月",
+        "day": "8",
+        "week": "周四",
+        "city": "迪拜 → 香港",
+        "summary": "迪拜转机，返回香港",
+        "filters": [
+          "transit"
+        ],
+        "color": "#7b6b58",
+        "tags": [
+          "EK380",
+          "行程结束"
+        ],
+        "stay": "—",
+        "items": [
+          [
+            "06:40",
+            "FZ1406 抵达迪拜机场 T3",
+            "转机约 3 小时 20 分"
+          ],
+          [
+            "10:00",
+            "EK380 迪拜起飞",
+            "迪拜机场 T3 → 香港国际机场 T1"
+          ],
+          [
+            "22:05",
+            "抵达香港国际机场 T1",
+            "行程结束"
+          ]
         ]
       }
     ];
 
     const reservations = [
-      ['梵蒂冈博物馆 + 西斯廷礼拜堂', '10.5 周一', '10:00—10:30', 'must', '必须预约', '与07:15到场的圣彼得大教堂衔接'],
-      ['卢浮宫', '9.28 周一', '09:00—09:30', 'must', '必须预约', '上午参观，下午转香榭丽舍购物'],
-      ['乌菲兹美术馆', '10.1 周四', '14:00', 'must', '必须预约', '优先保护该时段；比萨延误时提前返程'],
-      ['万神殿内部', '10.2 周五', '17:10左右', 'optional', '可选', '按现场体力和排队情况决定'],
-      ['米兰大教堂屋顶', '9.30 周三', '09:00', 'optional', '可选', '若参加，必须确保10:30前结束'],
-      ['塞纳河游船', '9.28 周一', '20:30后', 'optional', '非必选', '不压缩购物、晚餐或休息时间'],
-      ['多瑙河游船', '10.6 周二', '20:30—21:00', 'recommend', '建议预约', '选择可改退产品，航班延误时直接改签或取消']
+      [
+        "卢浮宫",
+        "09-28 周一",
+        "上午",
+        "pending",
+        "入场时间待确认",
+        "确认最终入场时间后安排出发"
+      ],
+      [
+        "乌菲兹美术馆",
+        "10-01 周四",
+        "下午",
+        "pending",
+        "入场时间待确认",
+        "根据最终入场时间安排比萨返程"
+      ],
+      [
+        "梵蒂冈博物馆",
+        "10-05 周一",
+        "10:00 左右（计划）",
+        "pending",
+        "入场时间待确认",
+        "清晨先前往圣彼得大教堂及广场"
+      ],
+      [
+        "万神殿内部",
+        "10-02 周五",
+        "下午至晚上",
+        "optional",
+        "可选",
+        "是否进入内部按现场体力与排队情况决定"
+      ],
+      [
+        "塞纳河游船",
+        "09-28 周一",
+        "晚上",
+        "optional",
+        "可选",
+        "视体力安排，不压缩休息时间"
+      ],
+      [
+        "多瑙河夜游",
+        "10-06 周二",
+        "晚上",
+        "recommend",
+        "建议预约",
+        "确认具体班次及码头，优先选择可改退产品"
+      ]
     ];
 
     const transports = [
-      ['9.26—9.27', '香港 → 曼谷 → 巴黎', '飞机', '19:05 / 20:45 / 00:05 / 07:10', 'confirmed', '已确认'],
-      ['9.29', '巴黎 → 米兰', '飞机', '19:30起飞', 'pending', '起降机场、航班号待补充'],
-      ['9.30', 'Milano Centrale → Firenze S.M.N.', 'Italo / Trenitalia高铁', '11:30—12:30出发', 'pending', '待购买'],
-      ['10.1', 'Firenze S.M.N. ↔ Pisa', 'Trenitalia区域列车', '早去午回', 'recommend', '临近购买即可'],
-      ['10.2', 'Firenze S.M.N. → Roma Termini', 'Italo / Trenitalia高铁', '10:00—10:45出发', 'pending', '待购买'],
-      ['10.6', '罗马 → 布达佩斯', '飞机', '14:30—16:20', 'pending', '罗马出发机场、航班号待补充'],
-      ['10.7', '布达佩斯 → 迪拜', 'FZ1406', '22:40起飞', 'confirmed', 'BUD → DXB T3'],
-      ['10.8', '迪拜 → 香港', '联程航班', '按机票执行', 'pending', '复核最终航班时刻']
+      [
+        "09-26",
+        "TG639",
+        "香港国际机场 T1 · 19:05",
+        "曼谷素万那普机场 · 20:45",
+        "confirmed",
+        "已预订"
+      ],
+      [
+        "09-27",
+        "TG930",
+        "曼谷素万那普机场 · 00:05",
+        "巴黎戴高乐机场 T1 · 07:10",
+        "confirmed",
+        "已预订"
+      ],
+      [
+        "09-29",
+        "U24943",
+        "巴黎奥利机场 T1 · 18:55",
+        "米兰利纳特机场 · 20:20",
+        "confirmed",
+        "已预订"
+      ],
+      [
+        "09-30",
+        "高速列车",
+        "Milano Centrale",
+        "Firenze Santa Maria Novella",
+        "pending",
+        "待补充车次与准确时间"
+      ],
+      [
+        "10-01",
+        "区域列车（往返）",
+        "Firenze SMN",
+        "Pisa Centrale",
+        "recommend",
+        "按当日行程购票"
+      ],
+      [
+        "10-02",
+        "Italo 8905",
+        "Firenze SMN · 10:28",
+        "Roma · 12:10",
+        "confirmed",
+        "已预订"
+      ],
+      [
+        "10-06",
+        "FR6516",
+        "罗马钱皮诺机场 · 08:55",
+        "布达佩斯机场 · 10:35",
+        "confirmed",
+        "已预订"
+      ],
+      [
+        "10-07",
+        "FZ1406",
+        "布达佩斯机场 · 22:40",
+        "迪拜机场 T3 · 10-08 06:40",
+        "confirmed",
+        "已预订"
+      ],
+      [
+        "10-08",
+        "EK380",
+        "迪拜机场 T3 · 10:00",
+        "香港国际机场 T1 · 22:05",
+        "confirmed",
+        "已预订"
+      ]
     ];
 
     const contingencies = [
-      ['9月28日购物时间超出预期', '直接取消塞纳河游船，不压缩香街购物和晚餐。'],
-      ['巴黎—米兰从 BVA 起飞', '缩短百货购物，最晚14:00左右离开巴黎市中心。'],
-      ['9月30日米兰参观超时', '按时乘高铁，取消额外购物，不压缩佛罗伦萨行程。'],
-      ['10月1日比萨列车延误', '优先保证14:00乌菲兹，缩短拍照或提前返程。'],
-      ['10月2日抵达罗马延误', '优先保留许愿池 + 圣依纳爵堂；西班牙广场或万神殿可挪到其他罗马日。'],
-      ['10月3日天气不适合拍照', '斗兽场外观挪到10月4日早晨，10月3日改为Monti、咖啡和购物。'],
-      ['10月4日真理之口排队过长', '设置最长排队时间，超过后只看外观并继续前往阿文蒂诺山。'],
-      ['10月6日航班延误', '多瑙河游船改签或取消，不强行赶固定班次。'],
-      ['10月7日机场交通不稳定', '直接打车，目标仍为19:30—19:40抵达 BUD。']
+      [
+        "9月28日购物时间超出预期",
+        "直接取消可选的塞纳河游船，保留晚餐与休息时间。"
+      ],
+      [
+        "9月29日前往奥利机场遇拥堵",
+        "缩短百货购物，及时取行李；以 U24943 18:55 起飞安排机场交通。"
+      ],
+      [
+        "9月30日米兰参观超时",
+        "以待补充的实际高铁班次为准，按时返回 Milano Centrale；取消额外购物。"
+      ],
+      [
+        "10月1日比萨列车延误",
+        "优先保证最终确认的乌菲兹入场时间，缩短拍照或提前返程。"
+      ],
+      [
+        "10月2日抵达罗马延误",
+        "缩短当日步行路线，部分景点可挪到其他罗马日。"
+      ],
+      [
+        "10月3日天气不适合拍照",
+        "按天气调整斗兽场与古罗马广场外观游览，保留 Monti 街区休息时间。"
+      ],
+      [
+        "10月4日真理之口排队过长",
+        "设置最长排队时间，超过后只看外观并继续前往犹太区。"
+      ],
+      [
+        "10月6日清晨前往钱皮诺机场",
+        "提前确认交通方式并预留值机安检时间；FR6516 08:55 起飞，不安排上午罗马市区活动。"
+      ],
+      [
+        "10月6日航班延误",
+        "压缩下午市区活动；必要时调整多瑙河夜游班次。"
+      ],
+      [
+        "10月7日机场交通不稳定",
+        "缩短佩斯自由活动，提前取行李；FZ1406 22:40 起飞，预留充足交通、值机与安检时间。"
+      ]
     ];
 
     const checklistGroups = [
-      { title: '航班与订单', items: [
-        ['flight-paris-milan', '确认9月29日巴黎—米兰的起飞机场、到达机场和航班号。'],
-        ['flight-rome-budapest', '确认10月6日罗马—布达佩斯的罗马出发机场和航班号。'],
-        ['flight-dubai-hk', '确认10月8日迪拜—香港航班时刻。'],
-        ['offline-orders', '离线保存护照、签证、保险、机票与重要订单。']
-      ]},
-      { title: '门票与活动', items: [
-        ['ticket-vatican', '预约10月5日梵蒂冈博物馆10:00—10:30。'],
-        ['ticket-louvre', '预约9月28日卢浮宫09:00—09:30。'],
-        ['ticket-uffizi', '预约10月1日乌菲兹14:00。'],
-        ['decide-pantheon', '决定是否进入万神殿内部。'],
-        ['decide-duomo-roof', '决定是否登米兰大教堂屋顶。'],
-        ['decide-seine', '视天气与体力决定是否乘塞纳河游船。'],
-        ['ticket-danube', '选择可改退的布达佩斯多瑙河游船产品。']
-      ]},
-      { title: '购物', items: [
-        ['lulu-check', '出发前复核 lululemon Champs-Élysées 营业时间与地址。'],
-        ['shopping-list', '整理想购买的品牌、尺码、颜色与预算。'],
-        ['tax-refund', '了解巴黎购物退税门槛、护照要求和机场退税流程。']
-      ]},
-      { title: '城际交通', items: [
-        ['train-milan-florence', '购买米兰—佛罗伦萨高铁票。'],
-        ['train-florence-rome', '购买佛罗伦萨—罗马高铁票。'],
-        ['transport-status', '出发前48小时检查 RER B、意大利铁路和机场交通状态。']
-      ]},
-      { title: '文件与物品', items: [
-        ['paper-copies', '准备纸质证件复印件。'],
-        ['power-kit', '准备欧标转换插头、充电宝、手机挂绳和防盗包。'],
-        ['church-clothes', '准备可遮盖肩膀与膝盖的教堂参观服装。'],
-        ['weather-kit', '准备薄外套、雨具和舒适步行鞋。']
-      ]}
+      {
+        "title": "行程待补充",
+        "items": [
+          [
+            "train-milan-florence-final",
+            "补充09-30米兰—佛罗伦萨高速列车的车次和准确时间。"
+          ],
+          [
+            "ticket-louvre-final",
+            "确认09-28卢浮宫最终入场时间（计划上午）。"
+          ],
+          [
+            "ticket-uffizi-final",
+            "确认10-01乌菲兹美术馆最终入场时间（计划下午）。"
+          ],
+          [
+            "ticket-vatican-final",
+            "确认10-05梵蒂冈博物馆最终入场时间（计划10:00左右）。"
+          ]
+        ]
+      },
+      {
+        "title": "订单与交通准备",
+        "items": [
+          [
+            "offline-orders",
+            "离线保存护照、签证、保险、机票与重要订单。"
+          ],
+          [
+            "hotel-arrival-plan",
+            "保存五家已订酒店地址，并确认寄存行李和入住安排。"
+          ],
+          [
+            "pisa-regional-train",
+            "按当日行程购买 Firenze SMN ↔ Pisa Centrale 区域列车票。"
+          ],
+          [
+            "cia-early-transfer",
+            "提前安排10-06清晨前往罗马钱皮诺机场的交通。"
+          ],
+          [
+            "transport-status",
+            "出发前48小时检查 RER B、意大利铁路和机场交通状态。"
+          ]
+        ]
+      },
+      {
+        "title": "门票与活动",
+        "items": [
+          [
+            "decide-pantheon",
+            "决定是否进入万神殿内部。"
+          ],
+          [
+            "decide-seine",
+            "视天气与体力决定是否乘塞纳河游船。"
+          ],
+          [
+            "ticket-danube",
+            "选择可改退的布达佩斯多瑙河游船产品。"
+          ]
+        ]
+      },
+      {
+        "title": "购物",
+        "items": [
+          [
+            "shopping-list",
+            "整理想购买的品牌、尺码、颜色与预算。"
+          ],
+          [
+            "tax-refund",
+            "了解巴黎购物退税门槛、护照要求和机场退税流程。"
+          ]
+        ]
+      },
+      {
+        "title": "文件与物品",
+        "items": [
+          [
+            "paper-copies",
+            "准备纸质证件复印件。"
+          ],
+          [
+            "power-kit",
+            "准备欧标转换插头、充电宝、手机挂绳和防盗包。"
+          ],
+          [
+            "church-clothes",
+            "准备可遮盖肩膀与膝盖的教堂参观服装。"
+          ],
+          [
+            "weather-kit",
+            "准备薄外套、雨具和舒适步行鞋。"
+          ]
+        ]
+      }
     ];
 
     const resources = [
@@ -1407,6 +2011,21 @@
         </article>`).join('');
     }
 
+    function getStay(day) {
+      const hotel = hotels.find(item => item.id === day.hotel);
+      return hotel ? (hotel.shortName || hotel.name) : day.stay;
+    }
+
+    function renderOverview() {
+      $('#overviewRows').innerHTML = itinerary.map(day => `
+        <tr><td>${day.id.slice(0, 2)}-${day.id.slice(2)}</td><td>${escapeHTML(day.summary)}</td><td>${escapeHTML(getStay(day))}</td></tr>`).join('');
+    }
+
+    function renderHotels() {
+      $('#hotelRows').innerHTML = hotels.map(hotel => `
+        <tr><td>${escapeHTML(hotel.city)}</td><td>${escapeHTML(hotel.checkIn)}</td><td>${escapeHTML(hotel.checkOut)}</td><td><strong>${escapeHTML(hotel.name)}</strong></td><td>${escapeHTML(hotel.address)}</td><td><span class="status ${statusClasses.confirmed}">${escapeHTML(hotel.status)}</span></td></tr>`).join('');
+    }
+
     function renderItinerary() {
       $('#daysList').innerHTML = itinerary.map((day, index) => `
         <details class="day-card" data-filters="${day.filters.join(' ')}" style="--day-color:${day.color}" ${index === 1 ? 'open' : ''}>
@@ -1423,6 +2042,7 @@
             <span class="chevron" aria-hidden="true">⌄</span>
           </summary>
           <div class="day-body">
+            <div class="day-stay"><span>当晚住宿：<strong>${escapeHTML(getStay(day))}</strong></span>${day.hotel ? '<a href="#hotels">查看酒店信息 ↗</a>' : ''}</div>
             <div class="timeline">
               ${day.items.map(([time, title, note]) => `
                 <div class="time-row">
@@ -1441,8 +2061,8 @@
     }
 
     function renderTransport() {
-      $('#transportRows').innerHTML = transports.map(([date, route, mode, time, type, label]) => `
-        <tr><td>${escapeHTML(date)}</td><td><strong>${escapeHTML(route)}</strong></td><td>${escapeHTML(mode)}</td><td>${escapeHTML(time)}</td><td><span class="status ${statusClasses[type]}">${escapeHTML(label)}</span></td></tr>`).join('');
+      $('#transportRows').innerHTML = transports.map(([date, service, departure, arrival, type, label]) => `
+        <tr><td>${escapeHTML(date)}</td><td><strong>${escapeHTML(service)}</strong></td><td>${escapeHTML(departure)}</td><td>${escapeHTML(arrival)}</td><td><span class="status ${statusClasses[type]}">${escapeHTML(label)}</span></td></tr>`).join('');
     }
 
     function renderContingencies() {
@@ -1559,6 +2179,8 @@
 
     function init() {
       renderRoute();
+      renderOverview();
+      renderHotels();
       renderDecisions();
       renderItinerary();
       renderReservations();
