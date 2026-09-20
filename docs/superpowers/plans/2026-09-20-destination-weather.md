@@ -47,3 +47,11 @@
 ## Review focus
 
 Incorrect timezone/date selection, future/past dates, unknown/nullable fields, stale data presented as fresh, malformed cache, cache stampedes, retry storms, status text after city changes, DOM injection, blocked storage, static relative paths, iframe integration and preservation of existing trip data.
+
+## Verification and review record
+
+- Data and rendering tests were observed failing before implementation, then passing. A regression for the overnight Dubai arrival keeps Dubai on October 8 only.
+- Browser QA: actual data loaded for all nine cities; Paris and Pisa current conditions, date-matched dual-city forecasts, future pending dates, manual refresh, keyboard focus and 390px layout verified without horizontal overflow. Existing itinerary content is unchanged.
+- Independent final review found one important issue: a partly aged startup cache could remain labelled fresh until the page's next 30-minute timer. A controller regression reproduced the issue, then passed after adding a visible-only minute age check. Fresh entries still avoid network requests. All 20 tests pass, lint and production build pass.
+- Reviewer confirmed no remaining Critical, Important or Minor findings. The sole declined item (live deployment and final visual QA) is accepted as the main agent's responsibility and is checked during publication.
+- The design skill guided accessible controls, explicit state labels and narrow-screen wrapping; the existing palette and itinerary layout were preserved.

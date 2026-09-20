@@ -86,7 +86,7 @@
       try {
         await Promise.all(ids.map(async id => { states.set(id, await store.get(id, { force })); render(); }));
         const failed = [...states.values()].filter(state => state.error).length;
-        status.textContent = failed ? failed + '个城市暂时无法更新，已有缓存会保留并标注。可稍后重试。' : '已载入目的地天气 · 页面可见时每30分钟自动检查，数据获取时间见各卡片。';
+        status.textContent = failed ? failed + '个城市暂时无法更新，已有缓存会保留并标注。可稍后重试。' : '已载入目的地天气 · 缓存有效期30分钟，页面可见时过期自动更新，获取时间见各卡片。';
       } finally {
         busy = false; refresh.disabled = false; refresh.textContent = '刷新天气'; panel.setAttribute('aria-busy', 'false');
       }
@@ -101,7 +101,12 @@
     });
     doc.addEventListener('visibilitychange', () => { if (!doc.hidden) { render(); void loadAll(); } });
     root.addEventListener('online', () => { if (!doc.hidden) void loadAll(); });
-    root.setInterval(() => { if (!doc.hidden) { render(); void loadAll(); } }, W.CACHE_TTL);
+    // Check age from retrieval, not page opening; fresh entries do not make network requests.
+    root.setInterval(() => {
+      if (doc.hidden) return;
+      render();
+      if ([...states.values()].some(state => !state.fetchedAt || Date.now() - state.fetchedAt >= W.CACHE_TTL)) void loadAll();
+    }, 60000);
     render(); void loadAll();
   }
   if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', mount, { once: true });
