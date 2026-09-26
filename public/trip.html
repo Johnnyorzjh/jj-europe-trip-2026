@@ -9,7 +9,10 @@
   <link rel="stylesheet" href="weather.css?v=2" />
   <script src="weather.js?v=1" defer></script>
   <script src="weather-ui.js?v=2" defer></script>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23203451'/%3E%3Cpath d='M12 42c12-17 29-23 40-22-7 7-11 16-12 26-10-5-19-5-28-4Z' fill='%23e4b66b'/%3E%3Ccircle cx='44' cy='18' r='5' fill='%23fff7e8'/%3E%3C/svg%3E" />
+  <script src="today.js?v=1" defer></script>
+  <link rel="icon" href="./favicon.ico?v=2" sizes="16x16 32x32 48x48" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png?v=2" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=2" />
   <style>
     :root {
       --bg: #f5f1e9;
@@ -430,6 +433,15 @@
       box-shadow: 0 8px 16px rgba(32,52,81,.16);
     }
     .expand-actions { display: flex; gap: 8px; }
+    .today-status { margin: 0 0 14px; color: var(--muted); font-size: 13px; }
+    .today-badge { padding: 3px 9px; border-radius: 999px; background: var(--navy); color: #fff; font-size: 12px; font-weight: 800; }
+    .today-badge[hidden] { display: none; }
+    .day-card.is-today { border-color: var(--navy); box-shadow: 0 0 0 1px var(--navy), var(--shadow-soft); }
+    .day-card { scroll-margin-top: 86px; }
+    .today-nav { font: inherit; font-size: 13px; border: 0; border-radius: 999px; padding: 7px 12px; background: var(--navy); color: #fff; cursor: pointer; white-space: nowrap; }
+    [data-go-today]:disabled { opacity: .45; cursor: default; }
+    [data-go-today]:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
     .days-list { display: grid; gap: 14px; }
     .day-card {
@@ -871,6 +883,7 @@
   <nav class="sticky-nav" aria-label="页面导航">
     <div class="nav-inner">
       <a class="nav-brand" href="#top"><span class="nav-mark">✦</span><span>欧洲行程</span></a>
+      <button class="today-nav" type="button" data-go-today disabled>回到今天</button>
       <a class="nav-link" href="#overview">概览</a>
       <a class="nav-link" href="#itinerary">每日行程</a>
       <a class="nav-link" href="#reservations">预约</a>
@@ -928,10 +941,12 @@
           <button class="filter-btn" type="button" data-filter="transit" aria-pressed="false">转场日</button>
         </div>
         <div class="expand-actions">
+          <button class="btn btn-soft" type="button" data-go-today disabled>回到今天</button>
           <button class="btn btn-soft" type="button" id="expandAll">展开全部</button>
           <button class="btn btn-soft" type="button" id="collapseAll">收起全部</button>
         </div>
       </div>
+      <p class="today-status" id="todayStatus" role="status"></p>
       <div class="days-list" id="daysList"></div>
       <p class="weather-source">天气按当地日期自动更新，降雨为概率；预报最长16天，远期仅供参考，“—”表示暂缺。数据：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>（CC BY 4.0，中文概况）。</p>
     </section>
@@ -1974,8 +1989,8 @@
     }
 
     function renderItinerary() {
-      $('#daysList').innerHTML = itinerary.map((day, index) => `
-        <details class="day-card" data-filters="${day.filters.join(' ')}" style="--day-color:${day.color}" ${index === 1 ? 'open' : ''}>
+      $('#daysList').innerHTML = itinerary.map(day => `
+        <details class="day-card" id="day-2026-${day.id.slice(0, 2)}-${day.id.slice(2)}" data-date="2026-${day.id.slice(0, 2)}-${day.id.slice(2)}" data-filters="${day.filters.join(' ')}" style="--day-color:${day.color}">
           <summary>
             <div class="date-box">
               <span class="date-number">${escapeHTML(day.day)}</span>
@@ -1986,7 +2001,7 @@
               <p>${escapeHTML(day.summary)}</p>
               <div class="day-weather" data-weather-date="2026-${day.id.slice(0, 2)}-${day.id.slice(2)}" aria-label="当日目的地天气预报"><span class="weather-inline is-pending">天气加载中…</span></div>
             </div>
-            <div class="day-tags">${day.tags.map(tag => `<span class="tag">${escapeHTML(tag)}</span>`).join('')}</div>
+            <div class="day-tags"><span class="today-badge" hidden>今天</span>${day.tags.map(tag => `<span class="tag">${escapeHTML(tag)}</span>`).join('')}</div>
             <span class="chevron" aria-hidden="true">⌄</span>
           </summary>
           <div class="day-body">

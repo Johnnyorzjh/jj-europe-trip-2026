@@ -27,7 +27,13 @@ export function generateMetadata(): Metadata {
   return {
     title,
     description,
-    icons: { icon: '/favicon.svg' },
+    icons: {
+      icon: [
+        { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+        { url: '/favicon-32.png', type: 'image/png', sizes: '32x32' },
+      ],
+      apple: { url: '/apple-touch-icon.png', sizes: '180x180' },
+    },
     openGraph: {
       title,
       description,

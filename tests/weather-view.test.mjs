@@ -42,7 +42,7 @@ test('weather failure produces a usable fallback, not a loading state forever',(
   assert.ok(html.includes('天气暂时无法更新'));assert.ok(!html.includes('正在加载'));
 });
 test('both deployment trees contain identical weather and itinerary assets',()=>{
-  for(const [source,target] of [['index.html','trip.html'],['weather.js','weather.js'],['weather-ui.js','weather-ui.js'],['weather.css','weather.css']]){
+  for(const [source,target] of [['index.html','trip.html'],['weather.js','weather.js'],['weather-ui.js','weather-ui.js'],['weather.css','weather.css'],['today.js','today.js']]){
     const a=new URL('../original/'+source,import.meta.url),b=new URL('../public/'+target,import.meta.url);
     assert.ok(fs.existsSync(a)&&fs.existsSync(b),source+' must be present in both sites');
     assert.equal(fs.readFileSync(a,'utf8'),fs.readFileSync(b,'utf8'));
