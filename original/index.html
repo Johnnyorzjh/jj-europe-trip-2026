@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="weather.css?v=2" />
   <script src="weather.js?v=1" defer></script>
   <script src="weather-ui.js?v=2" defer></script>
-  <script src="today.js?v=1" defer></script>
+  <script src="today.js?v=2" defer></script>
   <link rel="icon" href="./favicon.ico?v=2" sizes="16x16 32x32 48x48" />
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png?v=2" />
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=2" />
@@ -68,141 +68,11 @@
     }
     .skip-link:focus { transform: translateY(0); }
 
-    .hero {
-      position: relative;
-      overflow: hidden;
-      min-height: 500px;
-      color: #fff;
-      background:
-        linear-gradient(132deg, rgba(20, 38, 62, .98), rgba(41, 70, 94, .92) 58%, rgba(93, 76, 91, .90));
-    }
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(1px);
-      pointer-events: none;
-    }
-    .hero::before {
-      width: 360px;
-      height: 360px;
-      right: -70px;
-      top: -110px;
-      background: rgba(228, 182, 107, .16);
-    }
-    .hero::after {
-      width: 270px;
-      height: 270px;
-      left: 43%;
-      bottom: -190px;
-      background: rgba(255, 255, 255, .08);
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      width: min(var(--content), calc(100% - 36px));
-      margin: 0 auto;
-      padding: 58px 0 46px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(340px, .75fr);
-      gap: 48px;
-      align-items: end;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 11px;
-      border: 1px solid rgba(255,255,255,.22);
-      border-radius: 999px;
-      background: rgba(255,255,255,.08);
-      font-size: 13px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .eyebrow-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #e5b76f;
-      box-shadow: 0 0 0 5px rgba(229,183,111,.14);
-    }
-
-    h1 {
-      margin: 18px 0 16px;
-      font-family: Georgia, "Songti SC", "STSong", serif;
-      font-size: clamp(44px, 7vw, 84px);
-      line-height: 1.02;
-      letter-spacing: -.035em;
-      font-weight: 700;
-    }
-    .hero-lead {
-      max-width: 720px;
-      margin: 0;
-      color: rgba(255,255,255,.82);
-      font-size: clamp(16px, 2vw, 20px);
-    }
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
-    .meta-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.14);
-      color: rgba(255,255,255,.9);
-      font-size: 14px;
-    }
-
-    .hero-card {
-      padding: 24px;
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: var(--radius-lg);
-      background: linear-gradient(160deg, rgba(255,255,255,.13), rgba(255,255,255,.06));
-      backdrop-filter: blur(16px);
-      box-shadow: 0 20px 50px rgba(0,0,0,.16);
-    }
-    .hero-card-title {
-      margin: 0 0 14px;
-      font-size: 14px;
-      color: rgba(255,255,255,.62);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .hero-route {
-      display: grid;
-      gap: 10px;
-    }
-    .hero-route-line {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: rgba(255,255,255,.9);
-      font-size: 15px;
-    }
-    .route-bullet {
-      flex: 0 0 auto;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 2px solid #e4b66b;
-      background: transparent;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
-    }
+    .hero { color: #fff; background: var(--navy); }
+    .hero-inner { width: min(var(--content), calc(100% - 36px)); margin: 0 auto; padding: 22px 0 20px; }
+    h1 { margin: 0; font-size: clamp(23px, 3vw, 30px); line-height: 1.3; letter-spacing: -.03em; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 7px 0 0; color: #d4dce5; font-size: 12px; }
+    .footer-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 0 0 22px; }
 
     .btn {
       display: inline-flex;
@@ -248,7 +118,7 @@
       top: 0;
       z-index: 80;
       border-bottom: 1px solid rgba(31, 45, 67, .10);
-      background: rgba(250, 247, 240, .88);
+      background: #faf7f0;
       backdrop-filter: blur(18px);
     }
     .nav-inner {
@@ -257,7 +127,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      min-height: 62px;
+      min-height: 50px;
       overflow-x: auto;
       scrollbar-width: none;
     }
@@ -299,9 +169,9 @@
     main {
       width: min(var(--content), calc(100% - 36px));
       margin: 0 auto;
-      padding: 58px 0 82px;
+      padding: 22px 0 64px;
     }
-    section { scroll-margin-top: 86px; }
+    section { scroll-margin-top: 146px; }
     section + section { margin-top: 76px; }
 
     .section-head {
@@ -437,7 +307,7 @@
     .today-badge { padding: 3px 9px; border-radius: 999px; background: var(--navy); color: #fff; font-size: 12px; font-weight: 800; }
     .today-badge[hidden] { display: none; }
     .day-card.is-today { border-color: var(--navy); box-shadow: 0 0 0 1px var(--navy), var(--shadow-soft); }
-    .day-card { scroll-margin-top: 86px; }
+    .day-card { scroll-margin-top: 138px; }
     .today-nav { font: inherit; font-size: 13px; border: 0; border-radius: 999px; padding: 7px 12px; background: var(--navy); color: #fff; cursor: pointer; white-space: nowrap; }
     [data-go-today]:disabled { opacity: .45; cursor: default; }
     [data-go-today]:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
@@ -456,7 +326,7 @@
       list-style: none;
       cursor: pointer;
       display: grid;
-      grid-template-columns: 124px minmax(0,1fr) auto;
+      grid-template-columns: 112px minmax(0,1fr) auto 30px;
       gap: 18px;
       align-items: center;
       padding: 20px 22px;
@@ -764,8 +634,6 @@
     .toast.is-showing { transform: translate(-50%, 0); opacity: 1; }
 
     @media (max-width: 960px) {
-      .hero-inner { grid-template-columns: 1fr; align-items: start; }
-      .hero-card { max-width: 640px; }
       .overview-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .resources-grid { grid-template-columns: 1fr 1fr; }
       .check-shell { grid-template-columns: 1fr; }
@@ -775,12 +643,9 @@
     }
 
     @media (max-width: 720px) {
-      .hero { min-height: auto; }
-      .hero-inner { width: min(100% - 28px, var(--content)); padding: 40px 0 34px; gap: 28px; }
-      h1 { font-size: clamp(42px, 14vw, 64px); }
-      .hero-card { padding: 19px; }
+      .hero-inner { width: calc(100% - 28px); padding: 17px 0 15px; }
       .nav-brand span:last-child { display: none; }
-      main { width: min(100% - 24px, var(--content)); padding-top: 42px; }
+      main { width: min(100% - 24px, var(--content)); padding-top: 18px; }
       section + section { margin-top: 58px; }
       .section-head { align-items: start; flex-direction: column; }
       .overview-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -810,11 +675,42 @@
 
     @media (max-width: 460px) {
       .overview-grid { grid-template-columns: 1fr; }
-      .hero-meta { align-items: stretch; }
-      .meta-chip { width: 100%; }
       .progress-card { grid-template-columns: 1fr; text-align: center; }
       .progress-ring { margin: 18px auto 0; }
       .time-row { grid-template-columns: 76px minmax(0,1fr); }
+    }
+
+    .date-rail { display: flex; gap: 7px; width: min(var(--content), calc(100% - 24px)); margin: 0 auto; padding: 4px 0 10px; overflow-x: auto; scrollbar-width: none; }
+    .date-rail::-webkit-scrollbar { display: none; }
+    .date-link { flex: 0 0 112px; display: flex; flex-direction: column; justify-content: center; min-height: 58px; padding: 7px 9px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-strong); text-decoration: none; color: var(--muted); }
+    .date-link strong { color: var(--ink); font-size: 13px; line-height: 1.5; white-space: nowrap; }
+    .date-link span { font-size: 11px; line-height: 1.6; white-space: nowrap; }
+    .date-link > span { overflow: hidden; text-overflow: ellipsis; }
+    .date-link .date-today { color: var(--rust); font-weight: 800; margin-left: 4px; }
+    .date-link.is-selected { background: var(--navy); border-color: var(--navy); color: #dce4ee; }
+    .date-link.is-selected strong { color: #fff; }
+    .date-link.is-selected .date-today { color: #f3cb8d; }
+    .date-link:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
+    #itinerary .section-head { align-items: center; flex-direction: row; gap: 10px; margin-bottom: 8px; }
+    #itinerary h2 { font-family: inherit; font-size: 23px; }
+    .local-time-note { margin: 0; color: var(--muted); font-size: 12px; }
+    .itinerary-options { margin-bottom: 10px; }
+    .itinerary-options > summary { width: fit-content; min-height: 36px; padding: 6px 0; color: var(--muted); font-size: 13px; cursor: pointer; }
+    .itinerary-options .itinerary-toolbar { margin: 8px 0 14px; }
+    .today-status { margin-bottom: 12px; font-size: 12px; }
+    @media (max-width: 720px) {
+      .nav-brand { display: none; }
+      .nav-inner { width: calc(100% - 24px); gap: 3px; }
+      .nav-link { padding: 8px 10px; font-size: 13px; }
+      .today-nav { padding: 8px 11px; }
+      .day-card summary { gap: 8px 10px; padding: 14px; }
+      .date-number { width: 38px; height: 38px; border-radius: 12px; font-size: 19px; }
+      .date-meta { display: flex; align-items: baseline; gap: 6px; }
+      .day-summary h3 { font-size: 18px; }
+      .day-summary p { font-size: 13px; }
+      .day-tags { gap: 5px; }
+      .day-tags .tag, .today-badge { min-height: 23px; padding: 2px 8px; font-size: 11px; }
+      .day-stay { padding: 10px 12px; margin-top: 12px; font-size: 13px; }
     }
 
     @media print {
@@ -822,10 +718,9 @@
       body { background: #fff; font-size: 11pt; }
       .hero { min-height: auto; color: var(--ink); background: #fff; border-bottom: 2px solid var(--navy); }
       .hero-inner { display: block; padding: 20px 0; }
-      .hero-card, .hero-actions, .sticky-nav, .itinerary-toolbar, .progress-card .btn, .toast { display: none !important; }
+      .footer-actions, .sticky-nav, .itinerary-options, .progress-card .btn, .toast { display: none !important; }
       h1 { color: var(--navy); font-size: 34pt; }
-      .hero-lead, .meta-chip { color: var(--ink); }
-      .meta-chip { border-color: var(--line); background: #fff; }
+      .hero-meta { color: var(--ink); }
       main { width: 100%; padding: 24px 0; }
       section + section { margin-top: 34px; }
       .overview-grid { grid-template-columns: repeat(4,1fr); }
@@ -853,49 +748,56 @@
 
   <header class="hero" id="top">
     <div class="hero-inner">
-      <div>
-        <div class="eyebrow"><span class="eyebrow-dot"></span>行程更新 · 2026.09.20</div>
-        <h1>欧洲三国<br />行程规划</h1>
-        <p class="hero-lead">巴黎、米兰、佛罗伦萨、罗马、梵蒂冈与布达佩斯。每日安排、已订酒店、跨城交通与待确认事项集中在同一个页面。</p>
-        <div class="hero-meta">
-          <span class="meta-chip">📅 2026.09.26—10.08</span>
-          <span class="meta-chip">👥 2人</span>
-          <span class="meta-chip">🕒 均为当地时间</span>
-          <span class="meta-chip">🧭 法国 · 意大利 · 匈牙利</span>
-        </div>
-      </div>
-      <aside class="hero-card" aria-label="路线概览">
-        <p class="hero-card-title">Route overview</p>
-        <div class="hero-route">
-          <div class="hero-route-line"><span class="route-bullet"></span>香港 → 曼谷 → 巴黎</div>
-          <div class="hero-route-line"><span class="route-bullet"></span>巴黎 → 米兰 → 佛罗伦萨（比萨往返）</div>
-          <div class="hero-route-line"><span class="route-bullet"></span>佛罗伦萨 → 罗马 / 梵蒂冈</div>
-          <div class="hero-route-line"><span class="route-bullet"></span>罗马 → 布达佩斯 → 迪拜 → 香港</div>
-        </div>
-        <div class="hero-actions">
-          <button class="btn btn-light" id="shareBtn" type="button">↗ 分享网站</button>
-          <button class="btn btn-ghost" id="printBtn" type="button">⎙ 打印 / 导出 PDF</button>
-        </div>
-      </aside>
+      <h1>欧洲三国行程规划</h1>
+      <p class="hero-meta"><span>2026.09.26 — 10.08</span><span>13天 · 法国 / 意大利 / 匈牙利</span></p>
     </div>
   </header>
 
   <nav class="sticky-nav" aria-label="页面导航">
     <div class="nav-inner">
       <a class="nav-brand" href="#top"><span class="nav-mark">✦</span><span>欧洲行程</span></a>
-      <button class="today-nav" type="button" data-go-today disabled>回到今天</button>
-      <a class="nav-link" href="#overview">概览</a>
-      <a class="nav-link" href="#itinerary">每日行程</a>
-      <a class="nav-link" href="#reservations">预约</a>
+      <button class="today-nav" type="button" data-go-today disabled>今天</button>
+      <a class="nav-link" href="#itinerary">行程</a>
       <a class="nav-link" href="#hotels">酒店</a>
       <a class="nav-link" href="#transport">交通</a>
-      <a class="nav-link" href="#contingency">应急</a>
+      <a class="nav-link" href="#reservations">预约</a>
       <a class="nav-link" href="#checklist">清单</a>
+      <a class="nav-link" href="#overview">总览</a>
+      <a class="nav-link" href="#contingency">应急</a>
       <a class="nav-link" href="#resources">实用链接</a>
     </div>
+    <div class="date-rail" id="dateRail" role="group" aria-label="按日期查看行程"></div>
   </nav>
 
   <main id="main">
+    <section id="itinerary" aria-labelledby="itinerary-title">
+      <div class="section-head">
+        <h2 id="itinerary-title">每日安排</h2>
+        <p class="local-time-note">时间均为当地时间</p>
+      </div>
+      <details class="itinerary-options">
+        <summary>按城市筛选 / 展开全部</summary>
+      <div class="itinerary-toolbar">
+        <div class="filters" role="group" aria-label="按区域筛选行程">
+          <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">全部</button>
+          <button class="filter-btn" type="button" data-filter="paris" aria-pressed="false">巴黎</button>
+          <button class="filter-btn" type="button" data-filter="italy" aria-pressed="false">意大利</button>
+          <button class="filter-btn" type="button" data-filter="rome" aria-pressed="false">罗马 / 梵蒂冈</button>
+          <button class="filter-btn" type="button" data-filter="budapest" aria-pressed="false">布达佩斯</button>
+          <button class="filter-btn" type="button" data-filter="transit" aria-pressed="false">转场日</button>
+        </div>
+        <div class="expand-actions">
+          <button class="btn btn-soft" type="button" data-go-today disabled>回到今天</button>
+          <button class="btn btn-soft" type="button" id="expandAll">展开全部</button>
+          <button class="btn btn-soft" type="button" id="collapseAll">收起全部</button>
+        </div>
+      </div>
+      </details>
+      <p class="today-status" id="todayStatus" role="status"></p>
+      <div class="days-list" id="daysList"></div>
+      <p class="weather-source">天气按当地日期自动更新，降雨为概率；预报最长16天，远期仅供参考，“—”表示暂缺。数据：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>（CC BY 4.0，中文概况）。</p>
+    </section>
+
     <section id="overview" aria-labelledby="overview-title">
       <div class="section-head">
         <div>
@@ -921,34 +823,6 @@
           <tbody id="overviewRows"></tbody>
         </table>
       </div>
-    </section>
-
-    <section id="itinerary" aria-labelledby="itinerary-title">
-      <div class="section-head">
-        <div>
-          <p class="section-kicker">Daily plan</p>
-          <h2 id="itinerary-title">每日行程时间轴</h2>
-          <p class="section-desc">点击日期卡片展开；也可以按城市筛选，或一次性展开全部内容。</p>
-        </div>
-      </div>
-      <div class="itinerary-toolbar">
-        <div class="filters" role="group" aria-label="按区域筛选行程">
-          <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">全部</button>
-          <button class="filter-btn" type="button" data-filter="paris" aria-pressed="false">巴黎</button>
-          <button class="filter-btn" type="button" data-filter="italy" aria-pressed="false">意大利</button>
-          <button class="filter-btn" type="button" data-filter="rome" aria-pressed="false">罗马 / 梵蒂冈</button>
-          <button class="filter-btn" type="button" data-filter="budapest" aria-pressed="false">布达佩斯</button>
-          <button class="filter-btn" type="button" data-filter="transit" aria-pressed="false">转场日</button>
-        </div>
-        <div class="expand-actions">
-          <button class="btn btn-soft" type="button" data-go-today disabled>回到今天</button>
-          <button class="btn btn-soft" type="button" id="expandAll">展开全部</button>
-          <button class="btn btn-soft" type="button" id="collapseAll">收起全部</button>
-        </div>
-      </div>
-      <p class="today-status" id="todayStatus" role="status"></p>
-      <div class="days-list" id="daysList"></div>
-      <p class="weather-source">天气按当地日期自动更新，降雨为概率；预报最长16天，远期仅供参考，“—”表示暂缺。数据：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>（CC BY 4.0，中文概况）。</p>
     </section>
 
     <section id="reservations" aria-labelledby="reservations-title">
@@ -1047,6 +921,10 @@
   </main>
 
   <footer>
+    <div class="footer-actions">
+      <button class="btn btn-ghost" id="shareBtn" type="button">↗ 分享网站</button>
+      <button class="btn btn-ghost" id="printBtn" type="button">⎙ 打印 / 导出 PDF</button>
+    </div>
     <p><strong>欧洲三国行程 · 2026</strong></p>
     <p>巴黎 → 米兰 → 佛罗伦萨 / 比萨 → 罗马 / 梵蒂冈 → 布达佩斯</p>
     <p>更新时间：2026年9月20日。所有时间均为当地时间；票号、二维码、旅客姓名等隐私信息不写入网站。</p>
@@ -1989,6 +1867,10 @@
     }
 
     function renderItinerary() {
+      $('#dateRail').innerHTML = itinerary.map(day => {
+        const date = `2026-${day.id.slice(0, 2)}-${day.id.slice(2)}`;
+        return `<a class="date-link" href="#day-${date}" data-go-date="${date}" aria-label="${escapeHTML(day.month + day.day + '日 ' + day.week + ' ' + day.city)}"><strong>${day.id.slice(0, 2)}.${day.id.slice(2)}<span class="date-today" hidden>今天</span></strong><span>${escapeHTML(day.city)}</span></a>`;
+      }).join('');
       $('#daysList').innerHTML = itinerary.map(day => `
         <details class="day-card" id="day-2026-${day.id.slice(0, 2)}-${day.id.slice(2)}" data-date="2026-${day.id.slice(0, 2)}-${day.id.slice(2)}" data-filters="${day.filters.join(' ')}" style="--day-color:${day.color}">
           <summary>
